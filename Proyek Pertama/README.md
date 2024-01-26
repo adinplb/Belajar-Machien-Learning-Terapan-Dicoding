@@ -23,9 +23,14 @@ W. Nick Street, William H. Wolberg, et al. Nuclear Feature Extraction For Breast
 
 ### Goals
 
-
+### Solution Statements
+Untuk mencapai tujuan memprediksi breast cancer ini, pada projek ini mengimplementasikan 3 model machine learning. Dimana ketiga model ini cocok digunakan untuk binary classification which predict the ouput is 0 (Benign) dan 1 (Malignant).
+- Logistic Regression
+- Support Vector Machine
+- Neural Network
 
 ## Data Understanding
+Dataset yang digunakan berasal dari UC Irvine Machine Learning Repository. Pada pryek ini menggunakan dataset berformat csv berikut dimana sesuai dengan topik yang saya ambil yaitu mengenai breast cancer diagnosis. Dataset ini memiliki 564 data yang memiliki 32 fitur numerik dan 1 fitur kategorikal yang akan diubah menjadi integer sebagai target predict. Berikut features nya:
 - Radius: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points
 - Perimeter
 - Area
@@ -35,3 +40,10 @@ W. Nick Street, William H. Wolberg, et al. Nuclear Feature Extraction For Breast
 - Symmetry
 - Fractal Dimension
 - Texture
+
+### Exploratory Data Analysis and Visualization 
+#### Check Missing Values
+#### Outliers
+#### Univariate Analysis
+#### Multivariate Analysis
+####
