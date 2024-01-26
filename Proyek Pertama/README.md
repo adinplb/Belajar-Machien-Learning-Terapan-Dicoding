@@ -15,6 +15,16 @@ Interactive image processing techniques, along with a linear programming based i
 3. Related research results or refrences from credible sources and clear author. <br> 
 W. Nick Street, William H. Wolberg, et al. Nuclear Feature Extraction For Breast Tumor Diagnosis. Computer Science Technical Report #1131, December 1992
 
+## Business Understanding
+
+### Problem Statement
+1. Does each feature in this dataset have an influence on breast cancer prediction?
+2. Which Machine Learning model can solve the problem and present the best model as a solution?
+
+### Goals
+
+
+
 ## Data Understanding
 - Radius: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points
 - Perimeter
