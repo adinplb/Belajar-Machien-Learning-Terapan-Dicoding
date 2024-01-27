@@ -1,6 +1,9 @@
 # First Project Report of Applied ML
 >### ***"Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"***
->>#### Issued by **Muhammad Adin Palimbani** 
+>>#### Issued by **Muhammad Adin Palimbani**
+<picture>
+  <srcset=" https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/blob/02935c3aedf355fbce58e95d36dfaf547f90fab5/images/Histology-of-left-breast-cancer-The-tumor-is-composed-of-large-nests-with-central-comedo.png">
+</picture>
 ## Project Domain 
 1. Issue Focus? <br>
 The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models. This may lead to malformed prediction models and system failures at the production stage
