@@ -2,7 +2,7 @@
 >### ***"Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"***
 >>#### Issued by **Muhammad Adin Palimbani**
 
-<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/blob/02935c3aedf355fbce58e95d36dfaf547f90fab5/images/Histology-of-left-breast-cancer-The-tumor-is-composed-of-large-nests-with-central-comedo.png" width="495"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/de1f9259-51cd-4e2f-afe1-9a1e9e55dbdf" width="325"/> 
+<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/blob/02935c3aedf355fbce58e95d36dfaf547f90fab5/images/Histology-of-left-breast-cancer-The-tumor-is-composed-of-large-nests-with-central-comedo.png" width="500"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/de1f9259-51cd-4e2f-afe1-9a1e9e55dbdf" width="330"/> 
 
 ## Project Domain 
 1. Issue Focus? <br>
@@ -43,21 +43,24 @@ To reach out good Breast Cancer Prediction, using 3 different type binary classi
    Harus terukur dg metrik evaluasi 
 
 ## Data Understanding
-- Sumber Data + Link
-- Jumlah Data
-- Kondisi Data
-- Informasi Mengenai data
-- Menguraikan seluruh Fitur
-Dataset yang digunakan berasal dari UC Irvine Machine Learning Repository. Pada pryek ini menggunakan dataset berformat csv berikut dimana sesuai dengan topik yang saya ambil yaitu mengenai breast cancer diagnosis. Dataset ini memiliki 564 data yang memiliki 32 fitur numerik dan 1 fitur kategorikal yang akan diubah menjadi integer sebagai target predict. Berikut features nya:
-- Radius: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points
-- Perimeter
-- Area
-- Compactness
-- Smoothness
-- Concavity
-- Symmetry
-- Fractal Dimension
-- Texture
+Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnostic) Dataset](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data/code). Dataset is in CSV File Format which total class contribution are 357 Benign and 212 Malignant. Dataset is consist of 569 rows and 33 Features; 1 Categorical Features and 32 Numerical Features. One Categorical Features will be converted into Integer as Target Labelled. Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image. All feature values are recorded with four significant digits and none missing values. The extracted features are as follows: <br>
+1. ***Radius***: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points.
+2. ***Perimeter***: The total distance between the snake point constitues the nuclear perimeter.
+3. ***Area***: Nuclear area is measured simply by counting the number of pixels on the interior of the snake and adding one-hald of the pixels in the perimeter.
+4. ***Compactness***: Perimeter and area are combined to give a measure of the compactness of the cell nuclei using the formula perimeter<sup>2</sup>/area.
+5. ***Smoothness***: Quantified by measuring the difference between the length of a radial line and the mean length of the lines surrounding it.
+6. ***Concavity***: Severity of concave portions of the contour
+7. ***Concave points***: Number of concave portions of the contour
+8. ***Symmetry***: In order to measure symmetry, the major axis, or longest chord through the center, is found.
+9. ***Fractal Dimension***: Approximated using the "Coastline Approximation" described by Mandelbrot.
+10. ***Texture***: meaasured by finding the variance of the gray scale intensities in the component pixels.<br>
+
+>_mean, _se (standar error) and _worst (largest): mean of the 3 largest values of these features were computed for each image, resulting in 30 features. For instance: field 3 is mean radius, field 13 is radius_se, field 23 is worst radius.
+
+ . | radius_mean | radius_se | radius_worst | 
+ --- | --- | --- | --- | 
+Definition | mean of distances from center to points on the perimeter | standard error for the mean of distances from center to points on the perimeter | "worst" or largest mean value for mean of distances from center to points on the perimeter | 
+Example | 17.99 | 1.095| 25.38 | 
 
 ### Exploratory Data Analysis and Visualization 
 #### Check Missing Values
