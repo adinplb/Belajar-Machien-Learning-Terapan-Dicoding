@@ -1,6 +1,6 @@
 # First Project Report of Applied ML
 ### "Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"
-#### Issued by Muhammad Adin Palimbani
+#### Issued by Muhammad Adin Palimbani 
 ## Project Domain 
 1. Issue Focus? <br>
 The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models. This may lead to malformed prediction models and system failures at the production stage
@@ -18,19 +18,26 @@ Interactive image processing techniques, along with a linear programming based i
 [Quantitative nuclear phenotype signatures predict nodal disease in oral squamous cell carcinoma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8568158/). <br>
 
 ## Business Understanding
-Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or benig so in this project there is target labelled to predict whether it is a benign or malignant tumor. <code style="color : yellowgreen">A Supervised learning model is suitable for this problem by using the quantitative cell nuclear phenotype of Breast Tumor.</code>
+Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or benig so in this project there is target labelled to predict whether it is a benign or malignant tumor. A Supervised learning model is suitable for this problem by using the quantitative cell nuclear phenotype of Breast Tumor.
 
 ### Problem Statement
-1. Does each feature in this dataset have an influence on breast cancer prediction?
+1. Does each feature in this dataset have an influence on breast tumor prediction?
 2. Which Machine Learning model can solve the problem and present the best model as a solution?
 
 ### Goals
+1. Find features that have an influence on breast tumor prediction
+2. Find the best Machine Learning Model that could solve the problem
 
 ### Solution Statements
-Untuk mencapai tujuan memprediksi breast cancer ini, pada projek ini mengimplementasikan 3 model machine learning. Dimana ketiga model ini cocok digunakan untuk binary classification which predict the ouput is 0 (Benign) dan 1 (Malignant).
-- Logistic Regression
+To reach out good Breast Cancer Prediction, using 3 different type binary classification model in Supervised Machine Learning Algorithms. These are suitable for predicting the target labelled where the output are 0 (Benign) and 1 (Malignant). The algorithms are as follows: 
+- Linear Regression
+  Harus terukur dg metrik evaluasi 
+- K Nearest Neigbors
+   Harus terukur dg metrik evaluasi 
+- Random Forest
+   Harus terukur dg metrik evaluasi 
 - Support Vector Machine
-- Neural Network
+   Harus terukur dg metrik evaluasi 
 
 ## Data Understanding
 Dataset yang digunakan berasal dari UC Irvine Machine Learning Repository. Pada pryek ini menggunakan dataset berformat csv berikut dimana sesuai dengan topik yang saya ambil yaitu mengenai breast cancer diagnosis. Dataset ini memiliki 564 data yang memiliki 32 fitur numerik dan 1 fitur kategorikal yang akan diubah menjadi integer sebagai target predict. Berikut features nya:
