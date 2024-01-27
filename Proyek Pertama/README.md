@@ -1,5 +1,5 @@
 # First Project Report of Applied ML
-### "Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Machine Learning Algorithms"
+### "Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"
 #### Issued by Muhammad Adin Palimbani
 ## Project Domain 
 1. Issue Focus? <br>
