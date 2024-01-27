@@ -1,6 +1,6 @@
 # First Project Report of Applied ML
-### "Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"
-#### Issued by Muhammad Adin Palimbani 
+>### ***"Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"***
+>>#### Issued by **Muhammad Adin Palimbani** 
 ## Project Domain 
 1. Issue Focus? <br>
 The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models. This may lead to malformed prediction models and system failures at the production stage
@@ -40,6 +40,11 @@ To reach out good Breast Cancer Prediction, using 3 different type binary classi
    Harus terukur dg metrik evaluasi 
 
 ## Data Understanding
+- Sumber Data + Link
+- Jumlah Data
+- Kondisi Data
+- Informasi Mengenai data
+- Menguraikan seluruh Fitur
 Dataset yang digunakan berasal dari UC Irvine Machine Learning Repository. Pada pryek ini menggunakan dataset berformat csv berikut dimana sesuai dengan topik yang saya ambil yaitu mengenai breast cancer diagnosis. Dataset ini memiliki 564 data yang memiliki 32 fitur numerik dan 1 fitur kategorikal yang akan diubah menjadi integer sebagai target predict. Berikut features nya:
 - Radius: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points
 - Perimeter
@@ -57,3 +62,8 @@ Dataset yang digunakan berasal dari UC Irvine Machine Learning Repository. Pada 
 #### Univariate Analysis
 #### Multivariate Analysis
 ####
+
+
+
+<https://www.markdownguide.org>
+<fake@example.com>
