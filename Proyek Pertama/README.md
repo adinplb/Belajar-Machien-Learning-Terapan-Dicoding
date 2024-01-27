@@ -120,7 +120,7 @@ plt.show()
 
 #### Multivariate Analysis
 ```ruby
-# Mengamati hubungan antar fitur numerik dengan fungsi pairplot()
+# Observe relation among numerical features using pairplot() 
 sns.pairplot(df, diag_kind = 'kde')
 ```
 ![pairplot](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/0b1edff5-93de-4089-8fdc-1fe13e92836f)
@@ -128,22 +128,50 @@ sns.pairplot(df, diag_kind = 'kde')
 ```ruby
 plt.figure(figsize=(20, 18))
 correlation_matrix = df.corr().round(2)
-# Untuk menge-print nilai di dalam kotak, gunakan parameter anot=True
+# parameter anot=true is used for printing value inside the box
 sns.heatmap(data=correlation_matrix, annot=True, cmap='coolwarm', linewidths= 0.5, )
 plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
 ```
 ![multivariate](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/06078f33-9f1a-4f04-849f-90fb6d9e97de)
 
 ## Data Preparation
+At this stage, PCA and One-Hot Encoding are approriate techniques for features reduction and represent category-type data into binary integer values 0 and 1. Moreover, the class contribution in dataset are indeed imbalanced; 357 Benign and 212 Malignant so SMOTE or Synthetic Minority Over-sampling Technique will be implemented. Removing outliers will be performed as well and followed by feature scaling or z-score normalization where they have a mean of 0 and a standard deviation of 1. The data size will be splitted into train set and test set with ratio 80:20. To understand deeply the ins and outs of data preparation is by looking at these several steps: <br>
 
+1. Convert "Diagnosis" Feature "object" type into "binary integer" values 0 and 1 using One Hot Encoding.
+>Why One Hot Encoding?
+```ruby
+code in notebook
+```
 
-1. Use one hot encoding to change "Diagnosis" Categorical Features into biner values
-2. Handle imbalanced data
-3. Train Test Split 
-- apa eknik data preparation yang dilakukan? One-Hot-Encoding dan PCA
-- tahap tahap pembersihan data dan codenya
-- Menjelaskan proses per tahap
-- Menjelaskan alasan mengapa diperlukan tahapan tahapan tersebut.
+2. Remove outliers using IQR Method in all Features. Then, check data shape.
+>Why this is neccessary do?
+```ruby
+code in notebook
+```
+
+3. Reduce dimension of radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst and area_worst feature using PCA
+>Why this is neccessary do??
+```ruby
+code in notebook
+```
+
+4. SMOTE For imbalance data
+>Why this is neccessary do??
+```ruby
+code in notebook
+```
+
+5. Train Test Split
+>Why this is neccessary do??
+```ruby
+code in notebook
+```
+
+6. Feature Scalling using Z-Score Normalization
+>why this is neccessary do?? 
+```ruby
+code in notebook
+```
 
 ## Modelling
 
