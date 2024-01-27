@@ -135,6 +135,11 @@ plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
 ![multivariate](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/06078f33-9f1a-4f04-849f-90fb6d9e97de)
 
 ## Data Preparation
+
+
+1. Use one hot encoding to change "Diagnosis" Categorical Features into biner values
+2. Handle imbalanced data
+3. Train Test Split 
 - apa eknik data preparation yang dilakukan? One-Hot-Encoding dan PCA
 - tahap tahap pembersihan data dan codenya
 - Menjelaskan proses per tahap
