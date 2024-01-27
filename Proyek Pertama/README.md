@@ -18,6 +18,7 @@ Interactive image processing techniques, along with a linear programming based i
 [Quantitative nuclear phenotype signatures predict nodal disease in oral squamous cell carcinoma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8568158/). <br>
 
 ## Business Understanding
+Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or benig so in this project there is target labelled to predict whether it is a benign or malignant tumor. <code style="color : yellowgreen">A Supervised learning model is suitable for this problem by using the quantitative cell nuclear phenotype of Breast Tumor.</code>
 
 ### Problem Statement
 1. Does each feature in this dataset have an influence on breast cancer prediction?
