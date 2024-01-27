@@ -54,22 +54,91 @@ Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnost
 8. ***Symmetry***: In order to measure symmetry, the major axis, or longest chord through the center, is found.
 9. ***Fractal Dimension***: Approximated using the "Coastline Approximation" described by Mandelbrot.
 10. ***Texture***: meaasured by finding the variance of the gray scale intensities in the component pixels.<br>
+11. ***Diagnostic***: Benign and Malignant
 
 >_mean, _se (standar error) and _worst (largest): mean of the 3 largest values of these features were computed for each image, resulting in 30 features. For instance: field 3 is mean radius, field 13 is radius_se, field 23 is worst radius.
 
  . | radius_mean | radius_se | radius_worst | 
  --- | --- | --- | --- | 
 Definition | mean of distances from center to points on the perimeter | standard error for the mean of distances from center to points on the perimeter | "worst" or largest mean value for mean of distances from center to points on the perimeter | 
-Example | 17.99 | 1.095| 25.38 | 
+Values | 17.99 | 1.095| 25.38 | 
 
-### Exploratory Data Analysis and Visualization 
+### Exploratory Data Analysis and Visualization
+#### Check Data Type
+```ruby
+df.info()
+```
+![df info](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/34570f7b-7e16-414e-89f6-0599f85d0f78)
+
 #### Check Missing Values
-#### Outliers
+```ruby
+print(df.isna().sum())
+```
+![df isna](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/e14838d5-5672-4119-95dd-fd14397d81d0)
+
+#### Check Data Duplication
+```ruby
+print("Jumlah yang terduplikasi:", df.duplicated().sum())
+```
+![df duplicated](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/78819fb9-3ed0-47f7-97fa-da9328168a27)
+
+#### Descriptive Statistics Analysis
+```ruby
+df.describe()
+```
+![df describe](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/9b0f5c49-5927-4b31-adad-21dcd35e6f67)
+
+#### Check Outliers
+Four Example Features used to Check Outliers:
+```ruby
+sns.boxplot(x=df['radius_mean'])
+```
+
+![radius mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/319ae8e9-47d5-46df-b475-69291e915794)
+
+```ruby
+sns.boxplot(x=df['texture_mean'])
+```
+![texture mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/2b529395-c8a8-4c5d-8dd4-68ab9de92e6a)
+
+```ruby
+sns.boxplot(x=df['perimeter_mean'])
+```
+![perimeter mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/e3edbf37-30f9-4cca-88b8-06df171c8002)
+
+```ruby
+sns.boxplot(x=df['area_mean'])
+```
+![area mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/cac1e7b7-c579-4d9a-b860-67c326c7a144)
+
 #### Univariate Analysis
+```ruby
+df.hist(bins=50, figsize=(20,15))
+plt.show()
+```
+![univariate analysis](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/ac1b6f89-6e0e-4a0f-a564-19ed276c37bc)
+
 #### Multivariate Analysis
-####
+```ruby
+# Mengamati hubungan antar fitur numerik dengan fungsi pairplot()
+sns.pairplot(df, diag_kind = 'kde')
+```
+![pairplot](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/0b1edff5-93de-4089-8fdc-1fe13e92836f)
 
+```ruby
+plt.figure(figsize=(20, 18))
+correlation_matrix = df.corr().round(2)
+# Untuk menge-print nilai di dalam kotak, gunakan parameter anot=True
+sns.heatmap(data=correlation_matrix, annot=True, cmap='coolwarm', linewidths= 0.5, )
+plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
+```
+![multivariate](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/06078f33-9f1a-4f04-849f-90fb6d9e97de)
 
+## Data Preparation
+- apa eknik data preparation yang dilakukan? One-Hot-Encoding dan PCA
+- tahap tahap pembersihan data dan codenya
+- Menjelaskan proses per tahap
+- Menjelaskan alasan mengapa diperlukan tahapan tahapan tersebut.
 
-<https://www.markdownguide.org>
-<fake@example.com>
+## Modelling
+
