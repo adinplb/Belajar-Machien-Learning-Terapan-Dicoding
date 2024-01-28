@@ -138,22 +138,41 @@ plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
 At this stage, PCA and One-Hot Encoding are approriate techniques for features reduction and represent category-type data into binary integer values 0 and 1. Moreover, the class contribution in dataset are indeed imbalanced; 357 Benign and 212 Malignant so SMOTE or Synthetic Minority Over-sampling Technique will be implemented. Removing outliers will be performed as well and followed by feature scaling or z-score normalization where they have a mean of 0 and a standard deviation of 1. The data size will be splitted into train set and test set with ratio 80:20. To understand deeply the ins and outs of data preparation is by looking at these several steps: <br>
 
 1. Convert "Diagnosis" Feature "object" type into "binary integer" values 0 and 1 using One Hot Encoding.
->Why One Hot Encoding?
+>Why is it necessary for this One-Hot-Encoding technique to be carried out?
 ```ruby
-code in notebook
+category = pd.get_dummies(df.diagnosis)
+df_baru = pd.concat([df, category], axis=1)
+df_baru = df_baru.drop(columns='diagnosis')
+df_baru = df_baru.rename(columns={'B': 'Benign', 'M': 'Malignant'})
+df_baru
 ```
+<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/a29b20da-b0f5-4b34-b066-2c2ed1e285d9"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/b5e54865-e0f1-4cca-af07-0b88112313ed"/> 
 
 2. Remove outliers using IQR Method in all Features. Then, check data shape.
->Why this is neccessary do?
+>Why is it necessary for this IQR Method to be carried out?
 ```ruby
-code in notebook
+Q1 = df_baru.quantile(0.25)
+Q3 = df_baru.quantile(0.75)
+IQR=Q3-Q1
+df_baru=df_baru[~((df_baru<(Q1-1.5*IQR))|(df_baru>(Q3+1.5*IQR))).any(axis=1)]
+
+# Check data shape after dropping outliers
+df_baru.shape
 ```
+![data shape after drop outliers](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/eae1c2c9-3d03-4b70-b338-e6c2b9e22341)
+The dataset has been cleaned and has 346 samples
 
 3. Reduce dimension of radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst and area_worst feature using PCA
->Why this is neccessary do??
+>Why is it necessary for reducing dimension using PCA to be carried out?
 ```ruby
-code in notebook
+from sklearn.decomposition import PCA
+pca = PCA(n_components=1, random_state=123)
+pca.fit(df_baru[['radius_mean', 'perimeter_mean', 'area_mean', 'radius_worst', 'perimeter_worst', 'area_worst']])
+df_baru['dimension'] = pca.transform(df_baru.loc[:, ('radius_mean', 'perimeter_mean', 'area_mean', 'radius_worst', 'perimeter_worst', 'area_worst')]).flatten()
+df_baru.drop(['radius_mean', 'perimeter_mean', 'area_mean', 'radius_worst', 'perimeter_worst', 'area_worst'], axis=1, inplace=True)
+df_baru
 ```
+![dimension](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/bf28fcf9-1c18-4ecd-8284-fd15c807384a)
 
 4. SMOTE For imbalance data
 >Why this is neccessary do??
