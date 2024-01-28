@@ -6,13 +6,13 @@
 
 ## Project Domain 
 1. Issue Focus? <br>
-The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models. This may lead to malformed prediction models and system failures at the production stage
+The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models and also imbalanced data handling.  This may lead to malformed prediction models and system failures at the production stage
 
 2. Why does the issue need to be resolved? <br>
 The accurate prediction models of a disease outcome is extremely depends on the medical data of the patient. Medical data contains the patient's details condition and diagnosis which hold unnecessary and interrelated data. Those data is high dimensional data as well in particular the integration of clinical and genomic mixed data. In several studies, scientists have proved that approaches related to the genomic characteristics provides promising results for cancer detection and identification, for instances, digitized image of a fine needle aspirate (FNA) of a breast mass which represent cell nuclear characteristics in Breast Tumor. However, these methods suffer from low sensitivity regarding their use in screening at early stages and difficulty to determine benign from malignant tumors. This is the reason why the cancer predictive performance models issue need to be resolved in order to prevent malformed prediction and system failures. 
 
 3. How to address the issue? <br>
-Interactive image processing techniques, along with a linear programming based inductive classifier, have been used to creeate a highly accurate systm for diagnosis of Breast Tumors. A small fraction of a Fine Needle Aspirate Slide (FNA) is selected and digitized. The digitized image of a FNA of a Breast mass describe chracteristics of the cell nuclei present in the image. Those are computed and become features for this research. So we could possibily diagnosed whether it is Malignet or Benign through Nuclear Feature Extraction.
+Interactive image processing techniques, along with a linear programming based inductive classifier, have been used to creeate a highly accurate system for diagnosis of Breast Tumors. A small fraction of a Fine Needle Aspirate Slide (FNA) is selected and digitized. The digitized image of a FNA of a Breast mass describe chracteristics of the cell nuclei present in the image. Those are computed and become features for this research. So we could possibily diagnosed whether it is Malignant or Benign through Nuclear Feature Extraction.
 
 4. Related References from Credible Sources: <br> 
 [Nuclear Feature Extraction For Breast Tumor Diagnosis](https://minds.wisconsin.edu/bitstream/handle/1793/59692/TR1131.pdf;jsessionid=0449D8C1D78CAAB2BF57B76AABE87312?sequence=1). <br>
@@ -21,26 +21,30 @@ Interactive image processing techniques, along with a linear programming based i
 [Quantitative nuclear phenotype signatures predict nodal disease in oral squamous cell carcinoma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8568158/). <br>
 
 ## Business Understanding
-Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or benig so in this project there is target labelled to predict whether it is a benign or malignant tumor. A Supervised learning model is suitable for this problem by using the quantitative cell nuclear phenotype of Breast Tumor.
+Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or bening so in this project there is a target labelled to predict whether it is a benign or malignant tumor. A Supervised learning model is suitable for this problem by using the quantitative cell nuclear phenotype of Breast Tumor and followed by handling imbalanced data.
 
 ### Problem Statement
 1. Does each feature in this dataset have an influence on breast tumor prediction?
 2. Which Machine Learning model can solve the problem and present the best model as a solution?
+3. How does SMOTE affect model predictions?
 
 ### Goals
 1. Find features that have an influence on breast tumor prediction
 2. Find the best Machine Learning Model that could solve the problem
+3. Find the affect of SMOTE in handling imbalanced data for model prediction
 
 ### Solution Statements
-To reach out good Breast Cancer Prediction, using 3 different type binary classification model in Supervised Machine Learning Algorithms. These are suitable for predicting the target labelled where the output are 0 (Benign) and 1 (Malignant). The algorithms are as follows: 
-- Linear Regression
-  Harus terukur dg metrik evaluasi 
-- K Nearest Neigbors
-   Harus terukur dg metrik evaluasi 
-- Random Forest
-   Harus terukur dg metrik evaluasi 
-- Support Vector Machine
-   Harus terukur dg metrik evaluasi 
+To reach out good Breast Cancer Prediction, using 4 different type of Regression model for binary integer data in Supervised Machine Learning Algorithms. These are suitable for predicting the target labelled where the output are 0 (Benign) and 1 (Malignant). In addtion, SMOTE for handling imbalanced data will be implement as well. The algorithms are as follows: <br>
+
+- [Logistic Regression](https://nthu-datalab.github.io/ml/labs/06_Logistic-Regression_Metrics/06_Logistic-Regression_Metrics.html) <br>
+Logistic Regression is a classification algorithm in combination with a decision rule that makes dichotomous the predicted probabilities of the outcome. Currently, it is one of the most widely used classification models in Machine Learning. So far, we evaluate the performance of a classifier using the accuracy metric. Although accuracy is a general and common metric, there are several other evaluation metrics that allow us to quantify the performance of a model from different aspects.
+- [Neural Network](https://www.analyticsvidhya.com/blog/2021/11/neural-network-for-regression-with-tensorflow/) <br>
+TensorFlow can be used for regression tasks. It provides a flexible platform to build and train neural networks for regression problems. MAE is a very simple metric which calculates the absolute difference between actual and predicted values
+- [Support Vector Machine](https://medium.com/@mkk.rakesh/support-vector-machine-explained-with-a-binary-classification-problem-bb1d5be336c4) <br>
+SVM (Support Vector Machines) distinguishes itself from other Machine Learning models with its proficiency in handling high-dimensional data, finding complex decision boundaries. SVM offers various kernels for both linear and non-linear data, and maintaining robust performance even when data is limited. To evaluate SVM models for classification tasks, it's more appropriate to use classification-specific metrics such as accuracy, precision, recall, F1-score, and area under the ROC curve (ROC-AUC). These metrics provide insights into the SVM model's ability to classify instances correctly across different classes and account for the inherent characteristics of classification tasks.
+- [Random Forest](https://www.ibm.com/topics/random-forest) <br>
+Random forest is a commonly-used machine learning algorithm trademarked by Leo Breiman and Adele Cutler, which combines the output of multiple decision trees to reach a single result. Its ease of use and flexibility have fueled its adoption, as it handles both classification and regression problems. Metrics, such as Gini impurity, information gain, or [mean square error (MSE)](https://www.ibm.com/topics/random-forest#:~:text=Metrics%2C%20such%20as%20Gini%20impurity,%22don't%20surf.%22), can be used to evaluate the quality of the split. This decision tree is an example of a classification problem, where the class labels are "surf" and "don't surf."
+
 
 ## Data Understanding
 Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnostic) Dataset](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data/code). Dataset is in CSV File Format which total class contribution are 357 Benign and 212 Malignant. Dataset is consist of 569 rows and 33 Features; 1 Categorical Features and 32 Numerical Features. One Categorical Features will be converted into Integer as Target Labelled. Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image. All feature values are recorded with four significant digits and none missing values. The extracted features are as follows: <br>
@@ -137,14 +141,10 @@ plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
 ## Data Preparation
 At this stage, PCA and One-Hot Encoding are approriate techniques for features reduction and represent category-type data into binary integer values 0 and 1. Moreover, the class contribution in dataset are indeed imbalanced; 357 Benign and 212 Malignant so SMOTE or Synthetic Minority Over-sampling Technique will be implemented. Removing outliers will be performed as well and followed by feature scaling or z-score normalization where they have a mean of 0 and a standard deviation of 1. The data size will be splitted into train set and test set with ratio 80:20. To understand deeply the ins and outs of data preparation is by looking at these several steps: <br>
 
-1. Convert "Diagnosis" Feature "object" type into "binary integer" values 0 and 1 using One Hot Encoding.
->Why is it necessary for this One-Hot-Encoding technique to be carried out?
+1. Convert "Diagnosis" Feature "object" type into "binary integer" values 0 and 1.
+>Why is it necessary for this technique to be carried out?
 ```ruby
-category = pd.get_dummies(df.diagnosis)
-df_baru = pd.concat([df, category], axis=1)
-df_baru = df_baru.drop(columns='diagnosis')
-df_baru = df_baru.rename(columns={'B': 'Benign', 'M': 'Malignant'})
-df_baru
+df['diagnosis']=df['diagnosis'].map({'M':1,'B':0})
 ```
 <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/a29b20da-b0f5-4b34-b066-2c2ed1e285d9"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/b5e54865-e0f1-4cca-af07-0b88112313ed"/> 
 
