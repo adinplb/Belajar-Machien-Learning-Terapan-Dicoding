@@ -239,9 +239,55 @@ X_train[numerical_features].describe().round(4)
 
 
 ## Modelling
-1. Explain every step, every algorithms
-2. Advanatges and disadvantages each algorithms
-3. Explain why choose this model or algorithms as the best model?
+- Logistic Regression Model: <br>
+  Step 1. <br>
+  Step 2. <br>
+  Step 3. <br>
+  > Advantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum 
+  
+  > Disadvantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum  <br>
+
+- Neural Network Model: <br>
+  Step 1. <br>
+  Step 2. <br>
+  Step 3. <br>
+  > Advantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum 
+  
+  >  Disadvantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum  <br>
+
+- Support Vector Machine Model: <br>
+  Step 1. <br>
+  Step 2. <br>
+  Step 3. <br>
+  > Advantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum
+  
+  > Disadvantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum  <br>
+
+- Random Forest Model: <br>
+  Step 1. <br>
+  Step 2. <br>
+  Step 3. <br>
+  > Advantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum
+  
+  > Disadvantages: <br>
+  >> - Lorem Ipsum <br>
+  >> - Lorem Ipsum  <br>
+
+- Which the best algorithms for prediction and why? 
 
 ## Evaluation
 - What metric evalution used in this case?
