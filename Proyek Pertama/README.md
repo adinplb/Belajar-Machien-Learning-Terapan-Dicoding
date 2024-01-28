@@ -139,17 +139,19 @@ plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
 ![multivariate](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/06078f33-9f1a-4f04-849f-90fb6d9e97de)
 
 ## Data Preparation
-At this stage, PCA and One-Hot Encoding are approriate techniques for features reduction and represent category-type data into binary integer values 0 and 1. Moreover, the class contribution in dataset are indeed imbalanced; 357 Benign and 212 Malignant so SMOTE or Synthetic Minority Over-sampling Technique will be implemented. Removing outliers will be performed as well and followed by feature scaling or z-score normalization where they have a mean of 0 and a standard deviation of 1. The data size will be splitted into train set and test set with ratio 80:20. To understand deeply the ins and outs of data preparation is by looking at these several steps: <br>
+At this stage, PCA feaures reduction, change target labelled type into binary integer, IQR Method, SMOTE and Feature Scalling are approriate techniques for this type of dataset. Moreover, the class contribution in dataset are indeed imbalanced; 357 Benign and 212 Malignant so SMOTE or Synthetic Minority Over-sampling Technique will be implemented. Removing outliers will be performed as well and followed by feature scaling or z-score normalization where they have a mean of 0 and a standard deviation of 1. The data size will be splitted into train set and test set with ratio 80:20. To understand deeply the ins and outs of data preparation is by looking at these several steps: <br>
 
 1. Convert "Diagnosis" Feature "object" type into "binary integer" values 0 and 1.
 >Why is it necessary for this technique to be carried out?
+>>Answer: require input features to be numerical so the algorithms can be performed.
 ```ruby
 df['diagnosis']=df['diagnosis'].map({'M':1,'B':0})
 ```
-<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/a29b20da-b0f5-4b34-b066-2c2ed1e285d9"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/b5e54865-e0f1-4cca-af07-0b88112313ed"/> 
+<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/a29b20da-b0f5-4b34-b066-2c2ed1e285d9"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/89166fd5-dce2-499c-8a6d-3909cafa9db2"/> 
 
 2. Remove outliers using IQR Method in all Features. Then, check data shape.
 >Why is it necessary for this IQR Method to be carried out?
+>>Answer: outliers can increase variance in the dataset and the Interquartile Range (IQR) method is a robust and commonly used technique for detecting and removing outliers as well. 
 ```ruby
 Q1 = df_baru.quantile(0.25)
 Q3 = df_baru.quantile(0.75)
@@ -159,11 +161,12 @@ df_baru=df_baru[~((df_baru<(Q1-1.5*IQR))|(df_baru>(Q3+1.5*IQR))).any(axis=1)]
 # Check data shape after dropping outliers
 df_baru.shape
 ```
-![data shape after drop outliers](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/eae1c2c9-3d03-4b70-b338-e6c2b9e22341)
-The dataset has been cleaned and has 346 samples
+![data shape after drop outliers](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/26534822-5f9f-451a-9efe-cbccc9b7c3eb) <br>
+The dataset has been cleaned and has 398 samples
 
 3. Reduce dimension of radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst and area_worst feature using PCA
->Why is it necessary for reducing dimension using PCA to be carried out?
+>Why is it necessary for reducing those features using PCA to be carried out?
+>>Answer: The pairplot result shows those six features have a high correlation so they can be reduced using PCA which help to reduce noise and redundancy in dataset.
 ```ruby
 from sklearn.decomposition import PCA
 pca = PCA(n_components=1, random_state=123)
@@ -174,23 +177,66 @@ df_baru
 ```
 ![dimension](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/bf28fcf9-1c18-4ecd-8284-fd15c807384a)
 
-4. SMOTE For imbalance data
->Why this is neccessary do??
+4. Splitting Data into Train Set and Test Set + SMOTE For imbalanced data
+>Why is it necessary for handling imbalanced data using SMOTE to be carried out?
+>>Answer: To maximize overall accuracy and minimize MSE which can be misleading when classes are imbalanced and SMOTE (Synthetic Minority Over-sampling Technique) is one of the method used to address this issue.
 ```ruby
-code in notebook
+pip install imbalanced-learn
 ```
+```ruby
+from sklearn.model_selection import train_test_split
+from imblearn.over_sampling import SMOTE
 
-5. Train Test Split
->Why this is neccessary do??
-```ruby
-code in notebook
-```
+# Assuming X contains your features and y contains the corresponding labels
+# Perform train-test split
 
-6. Feature Scalling using Z-Score Normalization
->why this is neccessary do?? 
-```ruby
-code in notebook
+X = df.drop(["diagnosis"],axis =1)
+y = df["diagnosis"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Apply SMOTE only on the training data
+smote = SMOTE(random_state=42)
+X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+
+# Now, X_train_resampled and y_train_resampled contain the resampled data using SMOTE,
+# while X_test and y_test remain unchanged
+
+# Proceed with model training and evaluation using the resampled training data and the original test data
+
+# Count the number of samples in each class before and after SMOTE
+unique_train, counts_train = np.unique(y_train, return_counts=True)
+unique_train_resampled, counts_train_resampled = np.unique(y_train_resampled, return_counts=True)
+
+# Create a DataFrame to display the results
+data = {
+    'Class': unique_train,
+    'Original Count': counts_train,
+    'Resampled Count': counts_train_resampled
+}
+
+df_result = pd.DataFrame(data)
+print("Before SMOTE:")
+print(df_result)
+
+# Visualize the distribution of classes after SMOTE
+print("\nAfter SMOTE:")
+print("Classes:", unique_train_resampled)
+print("Counts:", counts_train_resampled)
 ```
+![output smote](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/0c0b9474-ad9f-4f9a-9482-8648a8642ae4)
+
+5. Feature Scalling using Z-Score Normalization
+>Why is it necessary for feature scalling to be carried out?
+>>Answer: To ensures all features have a similar scale, typically between 0 and 1 or around a mean of 0 with a standard deviation of 1. 
+```ruby
+scaler = StandardScaler()
+scaler.fit(X_train[numerical_features])
+X_train[numerical_features] = scaler.transform(X_train.loc[:, numerical_features])
+X_train[numerical_features].head()
+X_train[numerical_features].describe().round(4)
+```
+![standarisation](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/ed2b1602-7ea1-4089-a6ed-c9d7c9037585)
+
 
 ## Modelling
 
