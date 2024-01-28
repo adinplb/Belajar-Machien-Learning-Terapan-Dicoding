@@ -239,4 +239,16 @@ X_train[numerical_features].describe().round(4)
 
 
 ## Modelling
+1. Explain every step, every algorithms
+2. Advanatges and disadvantages each algorithms
+3. Explain why choose this model or algorithms as the best model?
 
+## Evaluation
+- What metric evalution used in this case?
+- Exaplain project result based on metric evaluation
+- Menjelaskan metrik evaluasi yang digunakan untuk mengukur kinerja model. Misalnya, menjelaskan formula metrik dan bagaimana metrik tersebut bekerja
+
+## Conclusion 
+1. Tidak semua fitur memiliki pengaruh dalam prediksi model
+2. Neural Network dengan penangana imbalanece data memberikan nilai MSE paling kecil sehingga algoritma ini menjadi model terbaik
+3. Iya, SMOTE memberikan tingkat akurasi yang tinggi dan nilai MSE yang rendah
