@@ -43,9 +43,11 @@ TensorFlow can be used for regression tasks. It provides a flexible platform to 
 
 Binary Crossentrophy as loss functioon 
 Activation Funstions: Sigmoid 
-hidden_unit = 100
-Leanring_rate = 0.01
-No of epocs
+hidden_units=100
+learning_rate=0.01
+hidden_layer_act='tanh'
+output_layer_act='sigmoid'
+no_epochs=100
 
 
 - [Support Vector Machine](https://medium.com/@mkk.rakesh/support-vector-machine-explained-with-a-binary-classification-problem-bb1d5be336c4) <br>
