@@ -1,12 +1,11 @@
-# First Project Report of Applied ML
->### ***"Breast Tumor Prediction and Diagnosis Using Quantitative Cell Nuclear Phenotype Features in Supervised Machine Learning Algorithms"***
->>#### Issued by **Muhammad Adin Palimbani**
+# Machine Learning Project Report - Muhammad Adin Palimbani
+>### ***"Breast Tumor Prediction and Diagnosis Using Quantitative Nuclear Phenotypes Features in Supervised Machine Learning Algorithms"*** - Predictive Analytics
 
 <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/blob/02935c3aedf355fbce58e95d36dfaf547f90fab5/images/Histology-of-left-breast-cancer-The-tumor-is-composed-of-large-nests-with-central-comedo.png" width="500"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/de1f9259-51cd-4e2f-afe1-9a1e9e55dbdf" width="330"/> 
 
 ## Project Domain 
 1. Issue Focus? <br>
-The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models and also imbalanced data handling.  This may lead to malformed prediction models and system failures at the production stage
+The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models and also handling imbalanced data.  This may lead to malformed prediction models and system failures at the production stage
 
 2. Why does the issue need to be resolved? <br>
 The accurate prediction models of a disease outcome is extremely depends on the medical data of the patient. Medical data contains the patient's details condition and diagnosis which hold unnecessary and interrelated data. Those data is high dimensional data as well in particular the integration of clinical and genomic mixed data. In several studies, scientists have proved that approaches related to the genomic characteristics provides promising results for cancer detection and identification, for instances, digitized image of a fine needle aspirate (FNA) of a breast mass which represent cell nuclear characteristics in Breast Tumor. However, these methods suffer from low sensitivity regarding their use in screening at early stages and difficulty to determine benign from malignant tumors. This is the reason why the cancer predictive performance models issue need to be resolved in order to prevent malformed prediction and system failures. 
@@ -14,32 +13,41 @@ The accurate prediction models of a disease outcome is extremely depends on the 
 3. How to address the issue? <br>
 Interactive image processing techniques, along with a linear programming based inductive classifier, have been used to creeate a highly accurate system for diagnosis of Breast Tumors. A small fraction of a Fine Needle Aspirate Slide (FNA) is selected and digitized. The digitized image of a FNA of a Breast mass describe chracteristics of the cell nuclei present in the image. Those are computed and become features for this research. So we could possibily diagnosed whether it is Malignant or Benign through Nuclear Feature Extraction.
 
-4. Related References from Credible Sources: <br> 
+4. Related Research References from Credible Sources: <br> 
 [Nuclear Feature Extraction For Breast Tumor Diagnosis](https://minds.wisconsin.edu/bitstream/handle/1793/59692/TR1131.pdf;jsessionid=0449D8C1D78CAAB2BF57B76AABE87312?sequence=1). <br>
 [Prediction of parameters of liver tumor using feature extraction and supervised function](https://www.sciencedirect.com/science/article/pii/S2665917422000204). <br>
 [Machine Learning Algorithms For Breast Cancer Prediction And Diagnosis](https://www.sciencedirect.com/science/article/pii/S1877050921014629). <br>
 [Quantitative nuclear phenotype signatures predict nodal disease in oral squamous cell carcinoma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8568158/). <br>
 
 ## Business Understanding
-Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or bening so in this project there is a target labelled to predict whether it is a benign or malignant tumor. A Supervised learning model is suitable for this problem by using the quantitative cell nuclear phenotype of Breast Tumor and followed by handling imbalanced data.
+Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or bening so in this project there is a target labelled to predict whether it is a benign or malignant tumor. A Supervised Machine Learning model is suitable for solving this issue by using the quantitative cell nuclear phenotypes of Breast Tumor and followed by handling imbalanced data.
 
 ### Problem Statement
-1. Does each feature in this dataset have an influence on breast tumor prediction?
-2. Which Machine Learning model can solve the problem and present the best model as a solution?
-3. How does SMOTE affect model predictions?
+1. Does each feature in this dataset have an influence on breast tumor prediction model?
+2. Which Machine Learning model present the best prediction model and could solve the issue?
+3. How does handling imbalanced data give an affect to prediction model?
 
 ### Goals
-1. Find features that have an influence on breast tumor prediction
-2. Find the best Machine Learning Model that could solve the problem
+1. Find features that have an influential on breast tumor prediction
+2. Find the best Machine Learning Model that could possibly solve the problem
 3. Find the affect of SMOTE in handling imbalanced data for model prediction
 
 ### Solution Statements
-To reach out good Breast Cancer Prediction, using 4 different type of Regression model for binary integer data in Supervised Machine Learning Algorithms. These are suitable for predicting the target labelled where the output are 0 (Benign) and 1 (Malignant). In addtion, SMOTE for handling imbalanced data will be implement as well. The algorithms are as follows: <br>
+To reach out good Breast Cancer Prediction, using 4 different type of Binary Classification model for predicting whether the diagnosis is benign (0) or malignant (1) in Supervised Machine Learning Algorithms. Those algorithms are suitable for predicting one of two possible outcomes. In addtion, SMOTE will be implemented as well for handling imbalanced data. The algorithms for binary classification are as follows: <br>
 
-- [Logistic Regression](https://nthu-datalab.github.io/ml/labs/06_Logistic-Regression_Metrics/06_Logistic-Regression_Metrics.html) <br>
-Logistic Regression is a classification algorithm in combination with a decision rule that makes dichotomous the predicted probabilities of the outcome. Currently, it is one of the most widely used classification models in Machine Learning. So far, we evaluate the performance of a classifier using the accuracy metric. Although accuracy is a general and common metric, there are several other evaluation metrics that allow us to quantify the performance of a model from different aspects.
+- [Binary Logistic Regression](https://www.datascienceinstitute.net/blog/binary-logistic-regression-an-introduction#:~:text=Binary%20logistic%20regression%20models%20the,or%20presence%20and%20so%20on.) <br>
+Binary Logistic Regression is the relationship between a set of independent variables; categorical or continous, and a binary dependent variables; like benign or malignant, deadth or survival, so on and so forth. Logistic regression is commonly used for classification issues which predict the values of target labelled 0 or 1. The logistic regression curve is a sigmoid curve. Common performance metrics to evaluate a binary classification model is Confusion metrics, accuracy score; ratios of correct predictions, Precision; proportion of the posivtive predictions is actual positive, Sensitivity (recall); the higher the recall score, the better the ML model is at identifying positives, Specificity; correctly predict the negatives out of actual negatives, F-Score(F1-Score);combine the precision and recall. In medical diagnosis, anything that doesn’t account for false negatives is serious, so [recall score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61) is a better measure than precision in this case.
+
 - [Neural Network](https://www.analyticsvidhya.com/blog/2021/11/neural-network-for-regression-with-tensorflow/) <br>
 TensorFlow can be used for regression tasks. It provides a flexible platform to build and train neural networks for regression problems. MAE is a very simple metric which calculates the absolute difference between actual and predicted values
+
+Binary Crossentrophy as loss functioon 
+Activation Funstions: Sigmoid 
+hidden_unit = 100
+Leanring_rate = 0.01
+No of epocs
+
+
 - [Support Vector Machine](https://medium.com/@mkk.rakesh/support-vector-machine-explained-with-a-binary-classification-problem-bb1d5be336c4) <br>
 SVM (Support Vector Machines) distinguishes itself from other Machine Learning models with its proficiency in handling high-dimensional data, finding complex decision boundaries. SVM offers various kernels for both linear and non-linear data, and maintaining robust performance even when data is limited. To evaluate SVM models for classification tasks, it's more appropriate to use classification-specific metrics such as accuracy, precision, recall, F1-score, and area under the ROC curve (ROC-AUC). These metrics provide insights into the SVM model's ability to classify instances correctly across different classes and account for the inherent characteristics of classification tasks.
 - [Random Forest](https://www.ibm.com/topics/random-forest) <br>
