@@ -238,11 +238,120 @@ X_train[numerical_features].describe().round(4)
 
 
 ## Modelling
-To solve the issue particularly in Binary Classification of Medical Diagnosis, Logistic Regression, Neural Network and Support Vector Machine Algorithms are the most appropriate model and having a high accuracy for predictions. The following is an explanation of each stage in each algorithms:
+To solve this Binary Classification of Medical Diagnosis issue, implementing Logistic Regression, Neural Network and Support Vector Machine Algorithms are the most appropriate model in classifying whether it is Benign (0) or Malignant (1) and having a great accuracy for predictions. The following is an explanation of each stage in each algorithms:
 - Logistic Regression Model: <br>
-  Step 1. <br>
-  Step 2. <br>
-  Step 3. <br>
+  Step 1. Import library <br>
+  ```ruby
+  from sklearn.linear_model import LogisticRegression
+  from sklearn.metrics import classification_report, confusion_matrix
+  from imblearn.over_sampling import SMOTE
+  from sklearn.preprocessing import StandardScaler
+  ```
+  Step 2. Scale features (optional but often recommended)
+  ```ruby
+  scaler = StandardScaler()
+  X_train_resampled_scaled = scaler.fit_transform(X_train_resampled)
+  X_test_scaled = scaler.transform(X_test)
+  ```
+  Step 3. Initialize and train logistic regression model before SMOTE <br>
+  ```ruby
+  log_reg_before_smote = LogisticRegression()
+  log_reg_before_smote.fit(X_train, y_train)
+  ```
+  Step 4. Make predictions on the test set before SMOTE <br>
+  ```ruby
+  y_pred_before_smote = log_reg_before_smote.predict(X_test)
+  ```
+  Step 5. Evaluate performance before SMOTE
+  ```ruby
+  print("Performance before SMOTE:")
+  print(confusion_matrix(y_test, y_pred_before_smote))
+  print(classification_report(y_test, y_pred_before_smote))
+  ```
+
+  ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac)
+
+  Step 6. Initialize and train logistic regression model after SMOTE <br>
+  ```ruby
+  log_reg_after_smote = LogisticRegression()
+  log_reg_after_smote.fit(X_train_resampled_scaled, y_train_resampled)
+  ```
+  Step 7. Make predictions on the test set after SMOTE
+  ```ruby
+  y_pred_after_smote = log_reg_after_smote.predict(X_test_scaled)
+  ```
+  Step 8. Evaluate performance after SMOTE
+  ```ruby
+  print("Performance after SMOTE:")
+  print(confusion_matrix(y_test, y_pred_after_smote))
+  print(classification_report(y_test, y_pred_after_smote))
+  ```
+![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393)
+
+  Step 9. Plot Confusion Metrics Before and After SMOTE
+  ```ruby
+  # Compute confusion matrices before and after SMOTE
+  confusion_matrix_before_smote = confusion_matrix(y_test, y_pred_before_smote)
+  confusion_matrix_after_smote = confusion_matrix(y_test, y_pred_after_smote)
+
+  # Plot confusion matrices
+  fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+
+  # Plot confusion matrix before SMOTE
+  axes[0].imshow(confusion_matrix_before_smote, cmap=plt.cm.Blues, interpolation='nearest')
+  axes[0].set_title('Confusion Matrix Before SMOTE')
+  axes[0].set_xticks([0, 1])
+  axes[0].set_yticks([0, 1])
+  axes[0].set_xlabel('Predicted Label')
+  axes[0].set_ylabel('True Label')
+  for i in range(2):
+      for j in range(2):
+          axes[0].text(j, i, str(confusion_matrix_before_smote[i, j]),
+                       horizontalalignment='center', verticalalignment='center',   color='white')
+
+  # Plot confusion matrix after SMOTE
+  axes[1].imshow(confusion_matrix_after_smote, cmap=plt.cm.Blues, interpolation='nearest')
+  axes[1].set_title('Confusion Matrix After SMOTE')
+  axes[1].set_xticks([0, 1])
+  axes[1].set_yticks([0, 1])
+  axes[1].set_xlabel('Predicted Label')
+  axes[1].set_ylabel('True Label')
+  for i in range(2):
+      for j in range(2):
+          axes[1].text(j, i, str(confusion_matrix_after_smote[i, j]),
+                       horizontalalignment='center', verticalalignment='center', color='white')
+
+  plt.tight_layout()
+  plt.show()
+  ```
+
+![LogReg Confusion Before and After smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/1d373926-f9db-4916-974a-127d1dd8c834)
+
+
+
+  Step 10. Plot Accuracy Before and After SMOTE
+  ```ruby
+  # Get classification reports before and after SMOTE
+classification_report_before_smote = classification_report(y_test, y_pred_before_smote, output_dict=True)
+classification_report_after_smote = classification_report(y_test, y_pred_after_smote, output_dict=True)
+
+# Extract accuracy values
+accuracy_before_smote = classification_report_before_smote['accuracy']
+accuracy_after_smote = classification_report_after_smote['accuracy']
+
+# Plot accuracy before and after SMOTE
+labels = ['Before SMOTE', 'After SMOTE']
+accuracy_scores = [accuracy_before_smote, accuracy_after_smote]
+
+plt.bar(labels, accuracy_scores, color=['blue', 'green'])
+plt.xlabel('SMOTE')
+plt.ylabel('Accuracy')
+plt.title('Accuracy of Logistic Regression before and after SMOTE')
+plt.ylim(0, 1)  # Limit y-axis from 0 to 1 for accuracy range
+plt.show()
+  ```
+![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/63740f0e-86f4-433d-bc0c-3cb69da4c3bf)
+
   > Advantages: <br>
   >> - lorem ipsum <br>
   >> - lorem ipsum <br>
