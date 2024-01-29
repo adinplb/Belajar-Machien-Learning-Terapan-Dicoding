@@ -366,10 +366,8 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
 - Neural Network Model: <br>
   Step 1. Import library <br>
   ```ruby
-  from sklearn.linear_model import LogisticRegression
-  from sklearn.metrics import classification_report, confusion_matrix
-  from imblearn.over_sampling import SMOTE
-  from sklearn.preprocessing import StandardScaler
+  from tensorflow.keras.models import Sequential
+  from tensorflow.keras.layers import Dense
   ```
   Step 2. Scale features (optional but often recommended)
   ```ruby
@@ -377,33 +375,36 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   X_train_resampled_scaled = scaler.fit_transform(X_train_resampled)
   X_test_scaled = scaler.transform(X_test)
   ```
-  Step 3. Initialize and train logistic regression model before SMOTE <br>
+  Step 3. Define the neural network model architecture before SMOTE <br>
   ```ruby
-  log_reg_before_smote = LogisticRegression()
-  log_reg_before_smote.fit(X_train, y_train)
+  lmodel_before_smote = Sequential([
+    Dense(128, activation='relu', input_shape=(X_train.shape[1],)),
+    Dense(64, activation='relu'),
+    Dense(32, activation='relu'),
+    Dense(1, activation='sigmoid')
+  ])
   ```
-  Step 4. Make predictions on the test set before SMOTE <br>
+  Step 4. Compile the model <br>
   ```ruby
-  y_pred_before_smote = log_reg_before_smote.predict(X_test)
+  model_before_smote.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
   ```
-  Step 5. Evaluate performance before SMOTE
+  Step 5. Train the model before SMOTE
   ```ruby
-  print("Performance before SMOTE:")
+  model_before_smote.fit(X_train, y_train, epochs=10, batch_size=32, verbose=1)
+  ```
+  Step 6. Make predictions on the test set before SMOTE <br>
+  ```ruby
+  y_pred_before_smote = (model_before_smote.predict(X_test) > 0.5).astype("int32")
+  ```
+  Step 7. Compute and print confusion matrix and classification report before SMOTE
+  ```ruby
+  print("Confusion Matrix and Classification Report before SMOTE:")
   print(confusion_matrix(y_test, y_pred_before_smote))
   print(classification_report(y_test, y_pred_before_smote))
   ```
 
-  ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac)
 
-  Step 6. Initialize and train logistic regression model after SMOTE <br>
-  ```ruby
-  log_reg_after_smote = LogisticRegression()
-  log_reg_after_smote.fit(X_train_resampled_scaled, y_train_resampled)
-  ```
-  Step 7. Make predictions on the test set after SMOTE
-  ```ruby
-  y_pred_after_smote = log_reg_after_smote.predict(X_test_scaled)
-  ```
+
   Step 8. Evaluate performance after SMOTE
   ```ruby
   print("Performance after SMOTE:")
