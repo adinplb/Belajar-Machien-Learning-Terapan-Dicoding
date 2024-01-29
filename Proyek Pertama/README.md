@@ -45,7 +45,7 @@ Neural network is a simplistic form network to classify as well regress the inpu
 Support Vector Machine is a set of Supervised Learning Methods used for Binary classification problem, regression and outliers detection.In particular, SVM Projects data to higher dimension, finds the optimal hyperplane that can maximize the soft margin, and uses that hyperplane as a threshold to classify new data points. To evaluate SVM models for classification tasks, it's more appropriate to use classification-specific metrics such as accuracy, precision, recall, F1-score, and area under the ROC curve (ROC-AUC). These metrics provide insights into the SVM model's ability to classify instances correctly across different classes and account for the inherent characteristics of classification tasks.
 
 ## Data Understanding
-Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnostic) Dataset](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data/code). Dataset is in CSV File Format which total class contribution are 357 Benign and 212 Malignant. Dataset is consist of 569 rows and 33 Features; 1 Categorical Features and 32 Numerical Features. One Categorical Features will be converted into Integer as Target Labelled. Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image. All feature values are recorded with four significant digits and none missing values. The extracted features are as follows: <br>
+Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnostic) Dataset](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data/code). Dataset is in CSV File Format which total class contribution are 357 Benign and 212 Malignant. Dataset is consist of 569 rows and 33 Features; 1 Categorical Features and 32 Numerical Features. One Categorical Features will be converted into Binary Integer as Target Labelled. Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image. All feature values are recorded with four significant digits and none missing values. The extracted features are as follows: <br>
 1. ***Radius***: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points.
 2. ***Perimeter***: The total distance between the snake point constitues the nuclear perimeter.
 3. ***Area***: Nuclear area is measured simply by counting the number of pixels on the interior of the snake and adding one-hald of the pixels in the perimeter.
@@ -58,6 +58,7 @@ Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnost
 10. ***Texture***: meaasured by finding the variance of the gray scale intensities in the component pixels.<br>
 11. ***Diagnostic***: Benign and Malignant
 
+>Additional Notes:
 >_mean, _se (standar error) and _worst (largest): mean of the 3 largest values of these features were computed for each image, resulting in 30 features. For instance: field 3 is mean radius, field 13 is radius_se, field 23 is worst radius.
 
  . | radius_mean | radius_se | radius_worst | 
@@ -237,13 +238,14 @@ X_train[numerical_features].describe().round(4)
 
 
 ## Modelling
+To solve the issue particularly in Binary Classification of Medical Diagnosis, Logistic Regression, Neural Network and Support Vector Machine Algorithms are the most appropriate model and having a high accuracy for predictions. The following is an explanation of each stage in each algorithms:
 - Logistic Regression Model: <br>
   Step 1. <br>
   Step 2. <br>
   Step 3. <br>
   > Advantages: <br>
-  >> - Lorem Ipsum <br>
-  >> - Lorem Ipsum 
+  >> - lorem ipsum <br>
+  >> - lorem ipsum <br>
   
   > Disadvantages: <br>
   >> - Lorem Ipsum <br>
@@ -261,17 +263,19 @@ X_train[numerical_features].describe().round(4)
   >> - Lorem Ipsum <br>
   >> - Lorem Ipsum  <br>
 
-- Support Vector Machine Model: <br>
+- [Support Vector Machine Model:](https://scikit-learn.org/stable/modules/svm.html) <br>
   Step 1. <br>
   Step 2. <br>
   Step 3. <br>
   > Advantages: <br>
-  >> - Lorem Ipsum <br>
-  >> - Lorem Ipsum
-  
+  >> - Effective in High Dimensional Spaces <br>
+  >> - Still effective in cases where number of dimensions is greater than the number of samples
+  >> - Uses a subset of training points in the decision function/support vectors, so it is also memory efficient
+  >> - Versatile: different kernel functions can be specified for the decision function.
+
   > Disadvantages: <br>
-  >> - Lorem Ipsum <br>
-  >> - Lorem Ipsum  <br>
+  >> - If the number of features is much greater than the number of samples, avoid over-fitting in choosing kernel functions and regularization term is crucial <br>
+  >> - SVM do not directly provide probability estimates, these are calculated using an expensive five fold cross validation<br>
 
 - Random Forest Model: <br>
   Step 1. <br>
