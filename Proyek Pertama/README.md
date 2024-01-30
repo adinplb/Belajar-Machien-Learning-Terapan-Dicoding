@@ -360,10 +360,7 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
 
 
 
-
-
-
-- Neural Network Model: <br>
+- [Neural Network Model](https://subscription.packtpub.com/book/data/9781788397872/1/ch01lvl1sec27/pros-and-cons-of-neural-networks): <br>
   Step 1. Import library <br>
   ```ruby
   from tensorflow.keras.models import Sequential
@@ -402,26 +399,45 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   print(confusion_matrix(y_test, y_pred_before_smote))
   print(classification_report(y_test, y_pred_before_smote))
   ```
+  ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/b5dbe9b3-47b7-438a-bd50-7aa594a65a3e)
 
-
-
-  Step 8. Evaluate performance after SMOTE
+  Step 8. Define the neural network model architecture after SMOTE
   ```ruby
-  print("Performance after SMOTE:")
+  model_after_smote = Sequential([
+    Dense(128, activation='relu', input_shape=(X_train_resampled_scaled.shape[1],)),
+    Dense(64, activation='relu'),
+    Dense(32, activation='relu'),
+    Dense(1, activation='sigmoid')
+  ])
+  ```
+
+  Step 9. Compile the model
+  ```ruby
+  model_after_smote.compile(optimizer='adam', loss='binary_crossentropy', metrics= ['accuracy'])
+  ```
+
+  Step 10. Train the model after SMOTE
+  ```ruby
+  history_smote = model_after_smote.fit(X_train_resampled_scaled, y_train_resampled, epochs=10, batch_size=32, verbose=1)
+  ```
+
+  Step 11. Make predictions on the test set after SMOTE
+  ```ruby
+  y_pred_after_smote = (model_after_smote.predict(X_test_scaled) > 0.5).astype("int32")
+  ```
+
+  Step 12. Compute and print confusion matrix and classification report after SMOTE
+  ```ruby
+  print("Confusion Matrix and Classification Report after SMOTE:")
   print(confusion_matrix(y_test, y_pred_after_smote))
   print(classification_report(y_test, y_pred_after_smote))
   ```
-  ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393)
 
-  Step 9. Plot Confusion Metrics Before and After SMOTE
+  ![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5dbf196c-9751-43e7-a87c-e7541b3d0b12)
+
+
+  Step 13. Plot confusion matrix before and after SMOTE
   ```ruby
-  # Compute confusion matrices before and after SMOTE
-  confusion_matrix_before_smote = confusion_matrix(y_test, y_pred_before_smote)
-  confusion_matrix_after_smote = confusion_matrix(y_test, y_pred_after_smote)
-
-  # Plot confusion matrices
-  fig, axes = plt.subplots(1, 2, figsize=(12, 6))
-
   # Plot confusion matrix before SMOTE
   axes[0].imshow(confusion_matrix_before_smote, cmap=plt.cm.Blues, interpolation='nearest')
   axes[0].set_title('Confusion Matrix Before SMOTE')
@@ -432,7 +448,7 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   for i in range(2):
       for j in range(2):
           axes[0].text(j, i, str(confusion_matrix_before_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center',   color='white')
+                       horizontalalignment='center', verticalalignment='center', color='white')
 
   # Plot confusion matrix after SMOTE
   axes[1].imshow(confusion_matrix_after_smote, cmap=plt.cm.Blues, interpolation='nearest')
@@ -450,38 +466,33 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   plt.show()
   ```
 
-  ![LogReg Confusion Before and After smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/1d373926-f9db-4916-974a-127d1dd8c834)
+  ![NN_ConfusionMetrics](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/436f2328-888d-4abd-8ed2-397e03db62ca)
 
-  Step 10. Plot Accuracy Before and After SMOTE
+
+  Step 14. Plot Accuracy Before and After SMOTE
   ```ruby
-  # Get classification reports before and after SMOTE
-  classification_report_before_smote = classification_report(y_test, y_pred_before_smote, output_dict=True)
-  classification_report_after_smote = classification_report(y_test, y_pred_after_smote, output_dict=True)
-
-  # Extract accuracy values
-  accuracy_before_smote = classification_report_before_smote['accuracy']
-  accuracy_after_smote = classification_report_after_smote['accuracy']
-
   # Plot accuracy before and after SMOTE
-  labels = ['Before SMOTE', 'After SMOTE']
-  accuracy_scores = [accuracy_before_smote, accuracy_after_smote]
-
-  plt.bar(labels, accuracy_scores, color=['blue', 'green'])
-  plt.xlabel('SMOTE')
+  plt.plot(history_original.history['accuracy'], label='Original Dataset')
+  plt.plot(history_smote.history['accuracy'], label='After SMOTE')
+  plt.xlabel('Epochs')
   plt.ylabel('Accuracy')
-  plt.title('Accuracy of Logistic Regression before and after SMOTE')
-  plt.ylim(0, 1)  # Limit y-axis from 0 to 1 for accuracy range
+  plt.title('Accuracy of Neural Network before and after SMOTE')
+  plt.legend()
   plt.show()
   ```
-  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/63740f0e-86f4-433d-bc0c-3cb69da4c3bf)
+  | Plot Accuracy 1 | Plot Accuracy 2 | 
+  | :---: | :---: | 
+  | ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/d88fa925-694f-47bf-a0f3-5edd86021790) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/d7b4fb46-431c-46a7-9e85-fcd8128b0999) | 
+
   > Advantages: <br>
-  >> - Lorem Ipsum <br>
-  >> - Lorem Ipsum 
+  >> - Neural Network can be trained with any number of inputs and layers <br>
+  >> - Neural networks work best with more data points
+  >> - One trained, the predictions are pretty fast
   
   >  Disadvantages: <br>
-  >> - Lorem Ipsum <br>
-  >> - Lorem Ipsum  <br>
-
+  >> - Neural networks are black boxes, meaning we cannot know how each independent variable is influencing the dependent variables <br>
+  >> - It is computationally very expensive and time consuming to train with traditional CPUs  <br>
+  >> - Neural networks depend a lot on training data
 
 
 
@@ -490,58 +501,49 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
 - [Support Vector Machine Model:](https://scikit-learn.org/stable/modules/svm.html) <br>
   Step 1. Import library <br>
   ```ruby
-  from sklearn.linear_model import LogisticRegression
-  from sklearn.metrics import classification_report, confusion_matrix
-  from imblearn.over_sampling import SMOTE
-  from sklearn.preprocessing import StandardScaler
+  from sklearn.svm import SVC
   ```
-  Step 2. Scale features (optional but often recommended)
+  Step 2. Initialize SVM classifier before SMOTE
   ```ruby
-  scaler = StandardScaler()
-  X_train_resampled_scaled = scaler.fit_transform(X_train_resampled)
-  X_test_scaled = scaler.transform(X_test)
+  svm_classifier_before_smote = SVC(kernel='rbf', random_state=42)
   ```
-  Step 3. Initialize and train logistic regression model before SMOTE <br>
+  Step 3. Train SVM classifier before SMOTE <br>
   ```ruby
-  log_reg_before_smote = LogisticRegression()
-  log_reg_before_smote.fit(X_train, y_train)
+  svm_classifier_before_smote.fit(X_train, y_train)
   ```
   Step 4. Make predictions on the test set before SMOTE <br>
   ```ruby
-  y_pred_before_smote = log_reg_before_smote.predict(X_test)
+  y_pred_before_smote = svm_classifier_before_smote.predict(X_test)
   ```
-  Step 5. Evaluate performance before SMOTE
+  Step 5. Compute and print confusion matrix and classification report before SMOTE
   ```ruby
-  print("Performance before SMOTE:")
+  print("Confusion Matrix and Classification Report before SMOTE:")
   print(confusion_matrix(y_test, y_pred_before_smote))
   print(classification_report(y_test, y_pred_before_smote))
   ```
 
-  ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac)
+  ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5ca15720-e31d-4c6c-a0be-6e59297cb226)
 
-  Step 6. Initialize and train logistic regression model after SMOTE <br>
+
+  Step 6. Train SVM classifier after SMOTE <br>
   ```ruby
-  log_reg_after_smote = LogisticRegression()
-  log_reg_after_smote.fit(X_train_resampled_scaled, y_train_resampled)
+  svm_classifier_after_smote.fit(X_train_resampled_scaled, y_train_resampled)
   ```
   Step 7. Make predictions on the test set after SMOTE
   ```ruby
-  y_pred_after_smote = log_reg_after_smote.predict(X_test_scaled)
+  y_pred_after_smote = svm_classifier_after_smote.predict(X_test_scaled)
   ```
-  Step 8. Evaluate performance after SMOTE
+  Step 8. Compute and print confusion matrix and classification report after SMOTE
   ```ruby
-  print("Performance after SMOTE:")
+  print("Confusion Matrix and Classification Report after SMOTE:")
   print(confusion_matrix(y_test, y_pred_after_smote))
   print(classification_report(y_test, y_pred_after_smote))
   ```
-  ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393)
+  
+  ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/071e71d2-8392-41c2-9f1a-0f4938a903e1)
 
   Step 9. Plot Confusion Metrics Before and After SMOTE
   ```ruby
-  # Compute confusion matrices before and after SMOTE
-  confusion_matrix_before_smote = confusion_matrix(y_test, y_pred_before_smote)
-  confusion_matrix_after_smote = confusion_matrix(y_test, y_pred_after_smote)
-
   # Plot confusion matrices
   fig, axes = plt.subplots(1, 2, figsize=(12, 6))
 
@@ -555,7 +557,7 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   for i in range(2):
       for j in range(2):
           axes[0].text(j, i, str(confusion_matrix_before_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center',   color='white')
+                       horizontalalignment='center', verticalalignment='center', color='white')
 
   # Plot confusion matrix after SMOTE
   axes[1].imshow(confusion_matrix_after_smote, cmap=plt.cm.Blues, interpolation='nearest')
@@ -573,12 +575,13 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   plt.show()
   ```
 
-  ![LogReg Confusion Before and After smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/1d373926-f9db-4916-974a-127d1dd8c834)
+  ![Plot confusion metric SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5a86814-f223-45ea-892e-22bda98e9af1)
+
 
   Step 10. Plot Accuracy Before and After SMOTE
   ```ruby
   # Get classification reports before and after SMOTE
-  classification_report_before_smote = classification_report(y_test, y_pred_before_smote, output_dict=True)
+  classification_report_before_smote = classification_report(y_test, y_pred_before_smote,   output_dict=True)
   classification_report_after_smote = classification_report(y_test, y_pred_after_smote, output_dict=True)
 
   # Extract accuracy values
@@ -592,11 +595,11 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   plt.bar(labels, accuracy_scores, color=['blue', 'green'])
   plt.xlabel('SMOTE')
   plt.ylabel('Accuracy')
-  plt.title('Accuracy of Logistic Regression before and after SMOTE')
+  plt.title('Accuracy of SVM before and after SMOTE')
   plt.ylim(0, 1)  # Limit y-axis from 0 to 1 for accuracy range
   plt.show()
   ```
-  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/63740f0e-86f4-433d-bc0c-3cb69da4c3bf)
+  ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0cee870f-92b6-4a87-87f0-d3ada2d971e9)
 
   > Advantages: <br>
   >> - Effective in High Dimensional Spaces <br>
