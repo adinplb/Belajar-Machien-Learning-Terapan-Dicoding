@@ -8,12 +8,12 @@ Diagnosis Tumor Payudara telah dilakukan dengan metode [Fine Needle Aspiration (
 
 ### Problem Statement
 Berikut adalah problem statement dari proyek ini:
-1. Apakah setiap fitur dalam dataset ini memiliki pengaruh pada model prediksi tumor payudara?
-2. Model Machine Learning mana yang menyajikan model prediksi terbaik dalam menyelesaikan permasalahan diagnosis kanker payudara?
+- Apakah setiap fitur dalam dataset ini memiliki pengaruh pada model prediksi tumor payudara?
+- Model Machine Learning mana yang menyajikan model prediksi terbaik dalam menyelesaikan permasalahan diagnosis kanker payudara?
 
 ### Goals
-1. Mengetahui fitur apa saja yang berpengaruh pada prediksi tumor payudara
-2. Mengetahui model terbaik dalam Machine Learning untuk memprediksi ganas atau tidaknya kanker payudara
+- Mengetahui fitur apa saja yang berpengaruh pada prediksi tumor payudara
+- Mengetahui model terbaik dalam Machine Learning untuk memprediksi ganas atau tidaknya kanker payudara
 
 ### Solution Statements
 Untuk mencapai tujuan memprediksi Kanker Payudara, saya menggunakan 3 jenis model Klasifikasi Biner yang berbeda untuk memprediksi apakah diagnosisnya jinak (0) atau ganas (1). Ketigas algoritma tersebut cocok untuk memprediksi salah satu dari dua hasil yang mungkin terjadi. Penerapan SMOTE juga akan dilakukan untuk menangani data yang tidak seimbang. Algoritma untuk klasifikasi biner yang digunakan adalah sebagai berikut: <br>
@@ -82,181 +82,33 @@ Lakukan Multivariate Analysis
 ![multivariate](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/06078f33-9f1a-4f04-849f-90fb6d9e97de)
 
 ## Data Preparation
-Pada tahap ini, metode PCA, ubah tipe data fitur kategorikal menjadi bilangan biner integer, Metode IQR, SMOTE, dan Scalling Fitur akan dilakukan pada penelitian ini. Selain itu, dataset memang tidak seimbang; 357 Benign dan 212 Malignant sehingga SMOTE atau Teknik Over-sampling Minoritas Sintetis akan diterapkan. Menghapus outlier akan dilakukan juga dan diikuti oleh penskalaan fitur dengan normalisasi skor-z dimana hasil mean akan menjadi 0 dan standar deviasi 1. Ukuran data akan dipecah menjadi train set dan test set dengan rasio 80:20. Untuk memahami secara mendalam proses persiapan data adalah dengan melihat beberapa langkah ini berikut ini: <br>
-
-1. Ubah "Diagnosis" Fitur tipe "objek" menjadi nilai "biner integer" 0 dan 1.
->Mengapa teknik ini perlu dilakukan?
->>Jawab: membutuhkan fitur input menjadi numerik sehingga algoritma dapat dilakukan. <br>
-<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/a29b20da-b0f5-4b34-b066-2c2ed1e285d9"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/89166fd5-dce2-499c-8a6d-3909cafa9db2"/> 
-
-2. Hapus outliers menggunakan Metode IQR di semua Fitur. Kemudian, periksa bentuk data.
->Mengapa Metode IQR ini perlu dilakukan?
->>Jawaban: pencilan dapat meningkatkan varians dalam dataset dan metode Interquartile Range (IQR) adalah teknik yang kuat dan umum digunakan untuk mendeteksi dan menghapus pencilan juga.
-
-![data shape after drop outliers](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/26534822-5f9f-451a-9efe-cbccc9b7c3eb) <br>
-Dataset telah dibersihkan dan memiliki 398 sampel
-
-3. Kurangi dimensi fitur radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst, dan area_worst menggunakan PCA
->Mengapa perlu untuk mengurangi fitur-fitur menggunakan PCA untuk dilakukan?
->>Jawaban: Hasil pairplot menunjukkan keenam fitur tersebut memiliki korelasi yang tinggi sehingga dapat dikurangi menggunakan PCA yang membantu mengurangi kebisingan dan redundansi dalam dataset.
-
-![dimension](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/bf28fcf9-1c18-4ecd-8284-fd15c807384a)
-
-4. Memisahkan data menjadi Train Set and Test Set + SMOTE Untuk Penanganan Imbalanced data
->Mengapa perlu untuk menangani data yang tidak seimbang menggunakan SMOTE untuk dilakukan?
->>Jawaban: Untuk memaksimalkan akurasi keseluruhan dan meminimalkan MSE yang dapat menyesatkan ketika kelas tidak seimbang dan SMOTE (Teknik Over-sampling Minoritas Sintetis) adalah salah satu metode yang digunakan untuk mengatasi masalah ini.
-
-![output smote](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/0c0b9474-ad9f-4f9a-9482-8648a8642ae4)
-
-5. Feature Scalling menggunakan Z-Score Normalization
->Mengapa penskalaan fitur perlu dilakukan?
->>Jawab: Untuk memastikan semua fitur memiliki skala yang sama, biasanya antara 0 dan 1 atau sekitar rata-rata 0 dengan standar deviasi 1.
+Pada tahap ini, metode PCA, ubah tipe data fitur kategorikal menjadi bilangan biner integer, Metode IQR, SMOTE, dan Scalling Fitur akan dilakukan pada penelitian ini. Selain itu, dataset memang tidak seimbang; 357 Benign dan 212 Malignant sehingga SMOTE atau Teknik Over-sampling Minoritas Sintetis akan diterapkan. Menghapus outlier akan dilakukan juga dan diikuti oleh penskalaan fitur dengan normalisasi skor-z dimana hasil mean akan menjadi 0 dan standar deviasi 1. Ukuran data akan dipecah menjadi train set dan test set dengan rasio 80:20. Ubah "Diagnosis" Fitur tipe "objek" menjadi nilai "biner integer" 0 dan 1. Hapus outliers menggunakan Metode IQR di semua Fitur. Kemudian, periksa bentuk data dan didapatkan Dataset telah dibersihkan memiliki 398 sampel. Kurangi dimensi fitur radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst, dan area_worst menggunakan PCA. Kemudian, memisahkan data menjadi Train Set and Test Set + SMOTE Untuk Penanganan Imbalanced data. Langkah terakhir, melakukan Feature Scalling menggunakan Z-Score Normalization
 
 ![standarisation](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/ed2b1602-7ea1-4089-a6ed-c9d7c9037585)
 
 ## Modelling
-Untuk mengatasi masalah Klasifikasi Diagnosis Medis Biner ini, menerapkan Regresi Logistik, Jaringan Neural dan Mesin Vektor Pendukung Algoritma adalah model yang paling tepat dalam mengklasifikasikan apakah itu Benign (0) atau Malignant (1) dan memiliki akurasi yang bagus untuk prediksi. Berikut ini adalah penjelasan dari setiap tahap dalam setiap algoritma:
+Untuk mengatasi masalah Klasifikasi Diagnosis Medis Biner ini, menerapkan Regresi Logistik, Jaringan Neural dan Mesin Vektor Pendukung Algoritma adalah model yang paling tepat dalam mengklasifikasikan apakah itu Benign (0) atau Malignant (1) dan memiliki akurasi yang bagus untuk prediksi. Algirtma yang digunakan adalah Logistic Regression, Neural Network dan Support Vector Machine. Logistic Regression memiliki kelebihan dalam kinerja yang dapat dipisahkan secara linear dan memberikan ukuran seberapa relevan prediktor (ukuran efisien) serta arah asosiasi (positif atau negatif). Kekurangan dari logistic regression adalah Batasan utama Regresi Logistik adalah asumsi linearitas antara variabel dependen dan variabel independen. Tidak hanya itu, Jika jumlah pengamatan lebih rendah dari jumlah fitur, Logistic Regression tidak boleh digunakan, jika tidak maka akan menyebabkan kelebihan. Algoritma yang kedua adalah Neural Network dimana memiliki 1 input layer dengan Activation RelU, 2 Hidden layer dengan activation RelU dan Output layer dengan Activation Sigmoid Function. Kelebihan dari neural network adalah dapat dilatih dengan sejumlah input dan lapisan, bekerja paling baik dengan lebih banyak titik data dan Satu terlatih, prediksi cukup cepat. Namun, kekurangan dari Neural Network adalah tidak bisa tahu bagaimana setiap variabel independen mempengaruhi variabel dependen dan secara komputasi sangat mahal serta memakan waktu untuk berlatih dengan CPU tradisional. Algortima yang ketiga adalah Support Vector Machine dengan kernel RBF. Kelebihan dari algoritma ini adalah efektif di Ruang Dimensi Tinggi, masih efektif dalam kasus di mana jumlah dimensi lebih besar dari jumlah sampel, menggunakan subset poin pelatihan dalam fungsi keputusan / vektor pendukung, sehingga memori juga efisien dam bersifat versatile. Kekurangan dari Support Vector Machine adalah jika jumlah fitur jauh lebih besar daripada jumlah sampel, hindari pas dalam memilih fungsi kernel dan istilah regularisasi sangat penting. Selain itu, SVM tidak secara langsung memberikan perkiraan probabilitas, ini dihitung menggunakan validasi silang lima kali lipat yang mahal. Hasil pemodelan menunjukkan bahwa algoritma terbaik untuk predicion Binary Integer Data yaitu ***Neural Network + SMOTE*** dengan akurasi 98%. Berdasarkan plot hasil akurasi antara NN Before dan After SMOTE, Neural Network dapat secara otomatis mempelajari fitur-fitur yang relevan dari data mentah dan memiliki fleksibilitas dalam berbagai arsitektur yang memungkinkan mereka untuk menangkap berbagai jenis pola dan struktur dalam data, membuatnya mudah beradaptasi dengan beragam tugas klasifikasi di berbagai domain. Dalam model ini, mendorong Fungsi RelU Aktivasi di lapisan input, lapisan tersembunyi dan Fungsi Acitvation Sigmoid dalam lapisan Output adalah alasan utama mengapa Neural Network adalah algoritma yang paling tepat untuk mengklasifikasikan Target yang Diberi Label ke dalam data ineteger biner. <br>
 
-- [Logistic Regression Model:](https://medium.com/@akshayjain_757396/advantages-and-disadvantages-of-logistic-regression-in-machine-learning-a6a247e42b20) <br>
-  Step 1. Import library <br>
-  Step 2. Scale features (optional but often recommended)
-  Step 3. Initialize and train logistic regression model before SMOTE <br>
-  Step 4. Make predictions on the test set before SMOTE <br>
-  Step 5. Evaluate performance before SMOTE <br>
-  ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac) <br>
-  Step 6. Initialize and train logistic regression model after SMOTE <br>
-  Step 7. Make predictions on the test set after SMOTE <br>
-  Step 8. Evaluate performance after SMOTE <br>
-  ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393) <br>
-  Step 9. Plot Confusion Metrics Before and After SMOTE <br>
-  ![LogReg Confusion Before and After smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/1d373926-f9db-4916-974a-127d1dd8c834) <br>
-  Step 10. Plot Accuracy Before and After SMOTE <br>
-  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/63740f0e-86f4-433d-bc0c-3cb69da4c3bf) <br>
-
-  > Kelebihan: <br>
-  >> - Regresi Logistik berkinerja baik ketika dataset dapat dipisahkan secara linear <br>
-  >> - Regresi Logistik tidak hanya memberikan ukuran seberapa relevan prediktor (ukuran efisien), tetapi juga arah asosiasi (positif atau negatif) <br>
-  
-  > Kekurangan: <br>
-  >> - Batasan utama Regresi Logistik adalah asumsi linearitas antara variabel dependen dan variabel independen <br>
-  >> - Jika jumlah pengamatan lebih rendah dari jumlah fitur, Regresi Logistik tidak boleh digunakan, jika tidak maka akan menyebabkan kelebihan  <br>
-
-
-
-- [Neural Network Model](https://subscription.packtpub.com/book/data/9781788397872/1/ch01lvl1sec27/pros-and-cons-of-neural-networks): <br>
-  Step 1. Import library <br>
-  Step 2. Scale features (optional but often recommended) <br>
-  Step 3. Define the neural network model architecture before SMOTE <br>
-  Step 4. Compile the model <br>
-  Step 5. Train the model before SMOTE <br>
-  Step 6. Make predictions on the test set before SMOTE <br>
-  Step 7. Compute and print confusion matrix and classification report before SMOTE <br>
-  ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/b5dbe9b3-47b7-438a-bd50-7aa594a65a3e) <br>
-  Step 8. Define the neural network model architecture after SMOTE <br>
-  Step 9. Compile the model <br>
-  Step 10. Train the model after SMOTE <br>
-  Step 11. Make predictions on the test set after SMOTE <br>
-  Step 12. Compute and print confusion matrix and classification report after SMOTE <br>
-  ![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5dbf196c-9751-43e7-a87c-e7541b3d0b12) <br>
-  Step 13. Plot confusion matrix before and after SMOTE <br>
-  ![NN_ConfusionMetrics](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/436f2328-888d-4abd-8ed2-397e03db62ca) <br>
-  Step 14. Plot Accuracy Before and After SMOTE <br>
-  | Plot Accuracy 1 | Plot Accuracy 2 | 
-  | :---: | :---: | 
-  | ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/d88fa925-694f-47bf-a0f3-5edd86021790) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/d7b4fb46-431c-46a7-9e85-fcd8128b0999) | 
-
-  > Kelebihan: <br>
-  >> - Neural Network dapat dilatih dengan sejumlah input dan lapisan <br>
-  >> - Neural networks bekerja paling baik dengan lebih banyak titik data
-  >> - Satu terlatih, prediksi cukup cepat
-  
-  >  Kekurangan: <br>
-  >> - Neural networks adalah kotak hitam, artinya kita tidak bisa tahu bagaimana setiap variabel independen mempengaruhi variabel dependen <br>
-  >> - Secara komputasi sangat mahal dan memakan waktu untuk berlatih dengan CPU tradisional  <br>
-  >> - Neural networks sangat bergantung pada data pelatihan
-
-
-
-- [Support Vector Machine Model:](https://scikit-learn.org/stable/modules/svm.html) <br>
-  Step 1. Import library <br>
-  Step 2. Initialize SVM classifier before SMOTE <br>
-  Step 3. Train SVM classifier before SMOTE <br>
-  Step 4. Make predictions on the test set before SMOTE <br>
-  Step 5. Compute and print confusion matrix and classification report before SMOTE <br>
-  ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5ca15720-e31d-4c6c-a0be-6e59297cb226) <br>
-  Step 6. Train SVM classifier after SMOTE <br>
-  Step 7. Make predictions on the test set after SMOTE <br>
-  Step 8. Compute and print confusion matrix and classification report after SMOTE <br>
-  ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/071e71d2-8392-41c2-9f1a-0f4938a903e1) <br>
-  Step 9. Plot Confusion Metrics Before and After SMOTE <br>
-  ![Plot confusion metric SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5a86814-f223-45ea-892e-22bda98e9af1) <br>
-  Step 10. Plot Accuracy Before and After SMOTE <br>
-  ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0cee870f-92b6-4a87-87f0-d3ada2d971e9) <br>
-
-  > Kelebihan: <br>
-  >> - Efektif di Ruang Dimensi Tinggi <br>
-  >> - Masih efektif dalam kasus di mana jumlah dimensi lebih besar dari jumlah sampel
-  >> - Menggunakan subset poin pelatihan dalam fungsi keputusan / vektor pendukung, sehingga memori juga efisien
-  >> - Serbaguna: fungsi kernel yang berbeda dapat ditentukan untuk fungsi keputusan.
-
-  > Kekurangan: <br>
-  >> - Jika jumlah fitur jauh lebih besar daripada jumlah sampel, hindari pas dalam memilih fungsi kernel dan istilah regularisasi sangat penting <br>
-  >> - SVM tidak secara langsung memberikan perkiraan probabilitas, ini dihitung menggunakan validasi silang lima kali lipat yang mahal <br>
-
-- Algoritma mana yang terbaik untuk prediksi? <br>
   | Logistic Regression | Neural Network | Support Vector Machine |
   | :---: | :---: | :---: | 
   | ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/051a8bc0-2c44-4e54-a377-18e6c0e9e5bb) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/635bc08d-d78f-4b57-b6c2-c71549879242) | ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ac82d963-2026-4273-bcdc-2ed9f84a5033) | <br>
 
-  Algoritma terbaik untuk predicion Binary Integer Data dalam hal ini adalah ***Neural Network + SMOTE*** dengan akurasi 98%. Berdasarkan plot hasil akurasi antara NN Before dan After SMOTE, Neural Network dapat secara otomatis mempelajari fitur-fitur yang relevan dari data mentah dan memiliki fleksibilitas dalam berbagai arsitektur yang memungkinkan mereka untuk menangkap berbagai jenis pola dan struktur dalam data, membuatnya mudah beradaptasi dengan beragam tugas klasifikasi di berbagai domain. Dalam model ini, mendorong Fungsi RelU Aktivasi di lapisan input, lapisan tersembunyi dan Fungsi Acitvation Sigmoid dalam lapisan Output adalah alasan utama mengapa Neural Network adalah algoritma yang paling tepat untuk mengklasifikasikan Target yang Diberi Label ke dalam data ineteger biner. <br>
+ <br>
 
    ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/6c8ead2e-918c-4eb4-ba1f-c364b1270279)
 
 ## Evaluation
-- Evaluasi metrik apa yang digunakan dalam proyek ini dan cara kerjanya? <br> 
-Evaluasi metrik yang digunakan adalah [Confusion Metrics, Accuracy, Precision, Sensitivity(Recall), Specificity and F1-Score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61). Metrik kinerja tersebut biasanya digunakan untuk mengevaluasi Model Klasifikasi Biner. Mari kita tentukan setiap metrik dan cara kerjanya di bawah ini:<br>
-1. Confusion Metric: <br>
-   Ringkasan tabular dari tingkat prediksi Benar / Salah dan Positif / Negatif. Hal ini memungkinkan untuk menghitung berbagai metrik kinerja. <br>
+Evaluasi metrik yang digunakan adalah Confusion Metrics, Accuracy, Precision, Sensitivity(Recall), Specificity and F1-Score. Metrik kinerja tersebut biasanya digunakan untuk mengevaluasi Model Klasifikasi Biner. Confusion Metric adalah ringkasan tabular dari tingkat prediksi Benar / Salah dan Positif / Negatif. Hal ini memungkinkan untuk menghitung berbagai metrik kinerja. Accuracy bekerja dengan mengukur rasio prediksi yang benar dari semua hasil yang diprediksi. Nilai Precision bekerja dengan mengukur berapa proporsi prediksi positif yang sebenarnya positif. Skor presisi berguna untuk keberhasilan prediksi ketika kelas sangat tidak seimbang dan ketika secara signifikan hemat biaya untuk mengidentifikasi semua contoh positif tanpa positif palsu. Sensitivity/Recall yaitu mewakili kemampuan model untuk memprediksi dengan benar positif dari positif aktual. Semakin tinggi skor penarikan, semakin baik model pembelajaran mesin dalam mengidentifikasi hal-hal positif. Specificity adalah mewakili kemampuan model untuk memprediksi dengan benar negatif dari negatif aktual. Semakin tinggi skor spesifisitas, semakin baik model pembelajaran mesin dalam mengidentifikasi negatif.F1 Score bekerja dengan menggabungkan ketepatan dan penarikan kembali model, dan itu adalah rata-rata harmonik dari presisi dan penarikan. Ini sering digunakan ketika data tidak seimbang. 
 
-   ![Basic-Confusion-matrix](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/2fd76ef0-c24e-4ba3-ae8a-0959bf5b1e9a)
-   
-2. Accuracy: <br>
-mengukur rasio prediksi yang benar dari semua hasil yang diprediksi. <br>
-
-   ![accurcay score measuring](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/dd2b037c-cb5d-4cbd-a49c-547d67154a16)
-
-3. Precision: <br>
-mengukur berapa proporsi prediksi positif yang sebenarnya positif. Skor presisi berguna untuk keberhasilan prediksi ketika kelas sangat tidak seimbang dan ketika secara signifikan hemat biaya untuk mengidentifikasi semua contoh positif tanpa positif palsu.
-
-<br>
-
-   ![precision formula](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8d654914-c0eb-4047-95f6-e72aa5e9efbb)
-
-4. Sensitivity/Recall: <br>
-mewakili kemampuan model untuk memprediksi dengan benar positif dari positif aktual. Semakin tinggi skor penarikan, semakin baik model pembelajaran mesin dalam mengidentifikasi hal-hal positif. <br>
-   ![recall formula](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8a47bebf-2e71-4b39-8147-8d90b0ff3673)
-
-5. Specificity: <br>
-mewakili kemampuan model untuk memprediksi dengan benar negatif dari negatif aktual. Semakin tinggi skor spesifisitas, semakin baik model pembelajaran mesin dalam mengidentifikasi negatif. <br>
-
-   ![specificity](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0a7141f5-3bf6-4c89-bfcf-51010985190a)
-
-6. F1 Score: <br>
-menggabungkan ketepatan dan penarikan kembali model, dan itu adalah rata-rata harmonik dari presisi dan penarikan. Ini sering digunakan ketika data tidak seimbang. <br>
-
-   ![f1 score](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/4a047010-c742-47c0-a375-015bf2b223c8)
-
- 
-- Penjelasan Hasil Proyek Evaluasi Metrik! <br>
   | X | Logistic Regression | Neural Network |  Support Vector Machine | 
   | :---: | :---: | :---: | :---: | 
   | Confusion Metrics Before SMOTE | ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/4d073946-e2b4-410a-8bb5-749e25f9e604) | ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ffcb28c5-012c-4f6e-a493-563209fc2b98)| ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/29275888-f04f-41a2-a6a8-1a9d46e53f59) | 
   | Confusion Metrics After SMOTE | ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8321ccc2-2688-4992-8264-727ddec9b2ea) |![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ddc13079-5354-42ee-977f-c813b8331355) | ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5d4a8a8-b87f-4782-8a2c-f8091f30e178)|
   | Plot Accuracy |  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/051a8bc0-2c44-4e54-a377-18e6c0e9e5bb) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/635bc08d-d78f-4b57-b6c2-c71549879242) | ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ac82d963-2026-4273-bcdc-2ed9f84a5033) |
 
- Pada perbandingan matriks kebingungan dan nilai akurasi hasil di atas, Neural Network dengan SMOTE memiliki skor akurasi tertinggi dan matriks kebingungan yang hebat sehingga algoritma ini adalah model yang paling cocok dan tepat untuk prediksi Diagnosis Tumor Payudara menggunakan Fitur Phenotip Sel-Nuklir Kuantitatif. Fleksibilitas Arsitektur Jaringan Neural memungkinkan untuk menangkap berbagai jenis pola/struktur dalam dataset dan pelajari fitur numerik yang relevan untuk memprediksi Binary Integer Data apakah itu Benign (0) atau Malignant (1).
+Hasil evaluasi metric menunjukkan bahwa Neural Network dengan SMOTE memiliki skor akurasi tertinggi dan matriks kebingungan yang hebat sehingga algoritma ini adalah model yang paling cocok dan tepat untuk prediksi Diagnosis Tumor Payudara menggunakan Fitur Phenotip Sel-Nuklir Kuantitatif. Fleksibilitas Arsitektur Jaringan Neural memungkinkan untuk menangkap berbagai jenis pola/struktur dalam dataset dan pelajari fitur numerik yang relevan untuk memprediksi Binary Integer Data apakah itu Benign (0) atau Malignant (1).
 
 ## Conclusion 
-1. Tidak semua fitur berdampak pada algoritma dalam prediksi model.
-2. Neural Network dengan menangani data yang tidak seimbang menggunakan SMOTE, memberikan akurasi terbesar sehingga algoritma ini adalah model terbaik untuk memprediksi Diagnosis Tumor Payudara.
-3. Ya, SMOTE memengaruhi akurasi tinggi model.
+Kesimpulan yang didapat dalam memprediksi biaya asuransi pada proyek ini adalah sebagai berikut:
+- Tidak semua fitur berdampak pada algoritma dalam model prediksi tumor payudara
+- Neural Network dengan menangani data yang tidak seimbang menggunakan SMOTE, memberikan akurasi terbesar sehingga algoritma ini adalah model prediksi terbaik untuk menyelesaikan permasalahan diagnosis kanker payudara
