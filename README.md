@@ -130,398 +130,143 @@ Untuk mengatasi masalah Klasifikasi Diagnosis Medis Biner ini, menerapkan Regres
 - [Logistic Regression Model:](https://medium.com/@akshayjain_757396/advantages-and-disadvantages-of-logistic-regression-in-machine-learning-a6a247e42b20) <br>
   Step 1. Import library <br>
   Step 2. Scale features (optional but often recommended)
- 
   Step 3. Initialize and train logistic regression model before SMOTE <br>
-  
   Step 4. Make predictions on the test set before SMOTE <br>
-  
-  Step 5. Evaluate performance before SMOTE
-
-  ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac)
-
+  Step 5. Evaluate performance before SMOTE <br>
+  ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac) <br>
   Step 6. Initialize and train logistic regression model after SMOTE <br>
+  Step 7. Make predictions on the test set after SMOTE <br>
+  Step 8. Evaluate performance after SMOTE <br>
+  ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393) <br>
+  Step 9. Plot Confusion Metrics Before and After SMOTE <br>
+  ![LogReg Confusion Before and After smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/1d373926-f9db-4916-974a-127d1dd8c834) <br>
+  Step 10. Plot Accuracy Before and After SMOTE <br>
+  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/63740f0e-86f4-433d-bc0c-3cb69da4c3bf) <br>
+
+  > Kelebihan: <br>
+  >> - Regresi Logistik berkinerja baik ketika dataset dapat dipisahkan secara linear <br>
+  >> - Regresi Logistik tidak hanya memberikan ukuran seberapa relevan prediktor (ukuran efisien), tetapi juga arah asosiasi (positif atau negatif) <br>
   
-  Step 7. Make predictions on the test set after SMOTE
-  
-  Step 8. Evaluate performance after SMOTE
-  
-  ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393)
-
-  Step 9. Plot Confusion Metrics Before and After SMOTE
-  ```ruby
-  # Compute confusion matrices before and after SMOTE
-  confusion_matrix_before_smote = confusion_matrix(y_test, y_pred_before_smote)
-  confusion_matrix_after_smote = confusion_matrix(y_test, y_pred_after_smote)
-
-  # Plot confusion matrices
-  fig, axes = plt.subplots(1, 2, figsize=(12, 6))
-
-  # Plot confusion matrix before SMOTE
-  axes[0].imshow(confusion_matrix_before_smote, cmap=plt.cm.Blues, interpolation='nearest')
-  axes[0].set_title('Confusion Matrix Before SMOTE')
-  axes[0].set_xticks([0, 1])
-  axes[0].set_yticks([0, 1])
-  axes[0].set_xlabel('Predicted Label')
-  axes[0].set_ylabel('True Label')
-  for i in range(2):
-      for j in range(2):
-          axes[0].text(j, i, str(confusion_matrix_before_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center',   color='white')
-
-  # Plot confusion matrix after SMOTE
-  axes[1].imshow(confusion_matrix_after_smote, cmap=plt.cm.Blues, interpolation='nearest')
-  axes[1].set_title('Confusion Matrix After SMOTE')
-  axes[1].set_xticks([0, 1])
-  axes[1].set_yticks([0, 1])
-  axes[1].set_xlabel('Predicted Label')
-  axes[1].set_ylabel('True Label')
-  for i in range(2):
-      for j in range(2):
-          axes[1].text(j, i, str(confusion_matrix_after_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center', color='white')
-
-  plt.tight_layout()
-  plt.show()
-  ```
-
-  ![LogReg Confusion Before and After smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/1d373926-f9db-4916-974a-127d1dd8c834)
-
-  Step 10. Plot Accuracy Before and After SMOTE
-  ```ruby
-  # Get classification reports before and after SMOTE
-  classification_report_before_smote = classification_report(y_test, y_pred_before_smote, output_dict=True)
-  classification_report_after_smote = classification_report(y_test, y_pred_after_smote, output_dict=True)
-
-  # Extract accuracy values
-  accuracy_before_smote = classification_report_before_smote['accuracy']
-  accuracy_after_smote = classification_report_after_smote['accuracy']
-
-  # Plot accuracy before and after SMOTE
-  labels = ['Before SMOTE', 'After SMOTE']
-  accuracy_scores = [accuracy_before_smote, accuracy_after_smote]
-
-  plt.bar(labels, accuracy_scores, color=['blue', 'green'])
-  plt.xlabel('SMOTE')
-  plt.ylabel('Accuracy')
-  plt.title('Accuracy of Logistic Regression before and after SMOTE')
-  plt.ylim(0, 1)  # Limit y-axis from 0 to 1 for accuracy range
-  plt.show()
-  ```
-  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/63740f0e-86f4-433d-bc0c-3cb69da4c3bf)
-
-  > Advantages: <br>
-  >> - Logistic Regression performs well when the dataset is linearly separable <br>
-  >> - Logistic Regression not only gives a measure of how relevant a predictor (coefficient size) is, but also its direction of association (positive or negative) <br>
-  
-  > Disadvantages: <br>
-  >> - Main limitation of Logistic Regression is the assumption of linearity between the   dependent variable and the independent variables <br>
-  >> - If the number of observations are lesser than the number of features, Logistic Regression should not be used, otherwise it may lead to overfit  <br>
+  > Kekurangan: <br>
+  >> - Batasan utama Regresi Logistik adalah asumsi linearitas antara variabel dependen dan variabel independen <br>
+  >> - Jika jumlah pengamatan lebih rendah dari jumlah fitur, Regresi Logistik tidak boleh digunakan, jika tidak maka akan menyebabkan kelebihan  <br>
 
 
 
 - [Neural Network Model](https://subscription.packtpub.com/book/data/9781788397872/1/ch01lvl1sec27/pros-and-cons-of-neural-networks): <br>
   Step 1. Import library <br>
-  ```ruby
-  from tensorflow.keras.models import Sequential
-  from tensorflow.keras.layers import Dense
-  ```
-  Step 2. Scale features (optional but often recommended)
-  ```ruby
-  scaler = StandardScaler()
-  X_train_resampled_scaled = scaler.fit_transform(X_train_resampled)
-  X_test_scaled = scaler.transform(X_test)
-  ```
+  Step 2. Scale features (optional but often recommended) <br>
   Step 3. Define the neural network model architecture before SMOTE <br>
-  ```ruby
-  lmodel_before_smote = Sequential([
-    Dense(128, activation='relu', input_shape=(X_train.shape[1],)),
-    Dense(64, activation='relu'),
-    Dense(32, activation='relu'),
-    Dense(1, activation='sigmoid')
-  ])
-  ```
   Step 4. Compile the model <br>
-  ```ruby
-  model_before_smote.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-  ```
-  Step 5. Train the model before SMOTE
-  ```ruby
-  model_before_smote.fit(X_train, y_train, epochs=10, batch_size=32, verbose=1)
-  ```
+  Step 5. Train the model before SMOTE <br>
   Step 6. Make predictions on the test set before SMOTE <br>
-  ```ruby
-  y_pred_before_smote = (model_before_smote.predict(X_test) > 0.5).astype("int32")
-  ```
-  Step 7. Compute and print confusion matrix and classification report before SMOTE
-  ```ruby
-  print("Confusion Matrix and Classification Report before SMOTE:")
-  print(confusion_matrix(y_test, y_pred_before_smote))
-  print(classification_report(y_test, y_pred_before_smote))
-  ```
-  ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/b5dbe9b3-47b7-438a-bd50-7aa594a65a3e)
-
-  Step 8. Define the neural network model architecture after SMOTE
-  ```ruby
-  model_after_smote = Sequential([
-    Dense(128, activation='relu', input_shape=(X_train_resampled_scaled.shape[1],)),
-    Dense(64, activation='relu'),
-    Dense(32, activation='relu'),
-    Dense(1, activation='sigmoid')
-  ])
-  ```
-
-  Step 9. Compile the model
-  ```ruby
-  model_after_smote.compile(optimizer='adam', loss='binary_crossentropy', metrics= ['accuracy'])
-  ```
-
-  Step 10. Train the model after SMOTE
-  ```ruby
-  history_smote = model_after_smote.fit(X_train_resampled_scaled, y_train_resampled, epochs=10, batch_size=32, verbose=1)
-  ```
-
-  Step 11. Make predictions on the test set after SMOTE
-  ```ruby
-  y_pred_after_smote = (model_after_smote.predict(X_test_scaled) > 0.5).astype("int32")
-  ```
-
-  Step 12. Compute and print confusion matrix and classification report after SMOTE
-  ```ruby
-  print("Confusion Matrix and Classification Report after SMOTE:")
-  print(confusion_matrix(y_test, y_pred_after_smote))
-  print(classification_report(y_test, y_pred_after_smote))
-  ```
-
-  ![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5dbf196c-9751-43e7-a87c-e7541b3d0b12)
-
-
-  Step 13. Plot confusion matrix before and after SMOTE
-  ```ruby
-  # Plot confusion matrix before SMOTE
-  axes[0].imshow(confusion_matrix_before_smote, cmap=plt.cm.Blues, interpolation='nearest')
-  axes[0].set_title('Confusion Matrix Before SMOTE')
-  axes[0].set_xticks([0, 1])
-  axes[0].set_yticks([0, 1])
-  axes[0].set_xlabel('Predicted Label')
-  axes[0].set_ylabel('True Label')
-  for i in range(2):
-      for j in range(2):
-          axes[0].text(j, i, str(confusion_matrix_before_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center', color='white')
-
-  # Plot confusion matrix after SMOTE
-  axes[1].imshow(confusion_matrix_after_smote, cmap=plt.cm.Blues, interpolation='nearest')
-  axes[1].set_title('Confusion Matrix After SMOTE')
-  axes[1].set_xticks([0, 1])
-  axes[1].set_yticks([0, 1])
-  axes[1].set_xlabel('Predicted Label')
-  axes[1].set_ylabel('True Label')
-  for i in range(2):
-      for j in range(2):
-          axes[1].text(j, i, str(confusion_matrix_after_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center', color='white')
-
-  plt.tight_layout()
-  plt.show()
-  ```
-
-  ![NN_ConfusionMetrics](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/436f2328-888d-4abd-8ed2-397e03db62ca)
-
-
-  Step 14. Plot Accuracy Before and After SMOTE
-  ```ruby
-  # Plot accuracy before and after SMOTE
-  plt.plot(history_original.history['accuracy'], label='Original Dataset')
-  plt.plot(history_smote.history['accuracy'], label='After SMOTE')
-  plt.xlabel('Epochs')
-  plt.ylabel('Accuracy')
-  plt.title('Accuracy of Neural Network before and after SMOTE')
-  plt.legend()
-  plt.show()
-  ```
+  Step 7. Compute and print confusion matrix and classification report before SMOTE <br>
+  ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/b5dbe9b3-47b7-438a-bd50-7aa594a65a3e) <br>
+  Step 8. Define the neural network model architecture after SMOTE <br>
+  Step 9. Compile the model <br>
+  Step 10. Train the model after SMOTE <br>
+  Step 11. Make predictions on the test set after SMOTE <br>
+  Step 12. Compute and print confusion matrix and classification report after SMOTE <br>
+  ![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5dbf196c-9751-43e7-a87c-e7541b3d0b12) <br>
+  Step 13. Plot confusion matrix before and after SMOTE <br>
+  ![NN_ConfusionMetrics](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/436f2328-888d-4abd-8ed2-397e03db62ca) <br>
+  Step 14. Plot Accuracy Before and After SMOTE <br>
   | Plot Accuracy 1 | Plot Accuracy 2 | 
   | :---: | :---: | 
   | ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/d88fa925-694f-47bf-a0f3-5edd86021790) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/d7b4fb46-431c-46a7-9e85-fcd8128b0999) | 
 
-  > Advantages: <br>
-  >> - Neural Network can be trained with any number of inputs and layers <br>
-  >> - Neural networks work best with more data points
-  >> - One trained, the predictions are pretty fast
+  > Kelebihan: <br>
+  >> - Neural Network dapat dilatih dengan sejumlah input dan lapisan <br>
+  >> - Neural networks bekerja paling baik dengan lebih banyak titik data
+  >> - Satu terlatih, prediksi cukup cepat
   
-  >  Disadvantages: <br>
-  >> - Neural networks are black boxes, meaning we cannot know how each independent variable is influencing the dependent variables <br>
-  >> - It is computationally very expensive and time consuming to train with traditional CPUs  <br>
-  >> - Neural networks depend a lot on training data
-
-
+  >  Kekurangan: <br>
+  >> - Neural networks adalah kotak hitam, artinya kita tidak bisa tahu bagaimana setiap variabel independen mempengaruhi variabel dependen <br>
+  >> - Secara komputasi sangat mahal dan memakan waktu untuk berlatih dengan CPU tradisional  <br>
+  >> - Neural networks sangat bergantung pada data pelatihan
 
 
 
 - [Support Vector Machine Model:](https://scikit-learn.org/stable/modules/svm.html) <br>
   Step 1. Import library <br>
-  ```ruby
-  from sklearn.svm import SVC
-  ```
-  Step 2. Initialize SVM classifier before SMOTE
-  ```ruby
-  svm_classifier_before_smote = SVC(kernel='rbf', random_state=42)
-  ```
+  Step 2. Initialize SVM classifier before SMOTE <br>
   Step 3. Train SVM classifier before SMOTE <br>
-  ```ruby
-  svm_classifier_before_smote.fit(X_train, y_train)
-  ```
   Step 4. Make predictions on the test set before SMOTE <br>
-  ```ruby
-  y_pred_before_smote = svm_classifier_before_smote.predict(X_test)
-  ```
-  Step 5. Compute and print confusion matrix and classification report before SMOTE
-  ```ruby
-  print("Confusion Matrix and Classification Report before SMOTE:")
-  print(confusion_matrix(y_test, y_pred_before_smote))
-  print(classification_report(y_test, y_pred_before_smote))
-  ```
-
-  ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5ca15720-e31d-4c6c-a0be-6e59297cb226)
-
-
+  Step 5. Compute and print confusion matrix and classification report before SMOTE <br>
+  ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/5ca15720-e31d-4c6c-a0be-6e59297cb226) <br>
   Step 6. Train SVM classifier after SMOTE <br>
-  ```ruby
-  svm_classifier_after_smote.fit(X_train_resampled_scaled, y_train_resampled)
-  ```
-  Step 7. Make predictions on the test set after SMOTE
-  ```ruby
-  y_pred_after_smote = svm_classifier_after_smote.predict(X_test_scaled)
-  ```
-  Step 8. Compute and print confusion matrix and classification report after SMOTE
-  ```ruby
-  print("Confusion Matrix and Classification Report after SMOTE:")
-  print(confusion_matrix(y_test, y_pred_after_smote))
-  print(classification_report(y_test, y_pred_after_smote))
-  ```
-  
-  ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/071e71d2-8392-41c2-9f1a-0f4938a903e1)
+  Step 7. Make predictions on the test set after SMOTE <br>
+  Step 8. Compute and print confusion matrix and classification report after SMOTE <br>
+  ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/071e71d2-8392-41c2-9f1a-0f4938a903e1) <br>
+  Step 9. Plot Confusion Metrics Before and After SMOTE <br>
+  ![Plot confusion metric SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5a86814-f223-45ea-892e-22bda98e9af1) <br>
+  Step 10. Plot Accuracy Before and After SMOTE <br>
+  ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0cee870f-92b6-4a87-87f0-d3ada2d971e9) <br>
 
-  Step 9. Plot Confusion Metrics Before and After SMOTE
-  ```ruby
-  # Plot confusion matrices
-  fig, axes = plt.subplots(1, 2, figsize=(12, 6))
+  > Kelebihan: <br>
+  >> - Efektif di Ruang Dimensi Tinggi <br>
+  >> - Masih efektif dalam kasus di mana jumlah dimensi lebih besar dari jumlah sampel
+  >> - Menggunakan subset poin pelatihan dalam fungsi keputusan / vektor pendukung, sehingga memori juga efisien
+  >> - Serbaguna: fungsi kernel yang berbeda dapat ditentukan untuk fungsi keputusan.
 
-  # Plot confusion matrix before SMOTE
-  axes[0].imshow(confusion_matrix_before_smote, cmap=plt.cm.Blues, interpolation='nearest')
-  axes[0].set_title('Confusion Matrix Before SMOTE')
-  axes[0].set_xticks([0, 1])
-  axes[0].set_yticks([0, 1])
-  axes[0].set_xlabel('Predicted Label')
-  axes[0].set_ylabel('True Label')
-  for i in range(2):
-      for j in range(2):
-          axes[0].text(j, i, str(confusion_matrix_before_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center', color='white')
+  > Kekurangan: <br>
+  >> - Jika jumlah fitur jauh lebih besar daripada jumlah sampel, hindari pas dalam memilih fungsi kernel dan istilah regularisasi sangat penting <br>
+  >> - SVM tidak secara langsung memberikan perkiraan probabilitas, ini dihitung menggunakan validasi silang lima kali lipat yang mahal <br>
 
-  # Plot confusion matrix after SMOTE
-  axes[1].imshow(confusion_matrix_after_smote, cmap=plt.cm.Blues, interpolation='nearest')
-  axes[1].set_title('Confusion Matrix After SMOTE')
-  axes[1].set_xticks([0, 1])
-  axes[1].set_yticks([0, 1])
-  axes[1].set_xlabel('Predicted Label')
-  axes[1].set_ylabel('True Label')
-  for i in range(2):
-      for j in range(2):
-          axes[1].text(j, i, str(confusion_matrix_after_smote[i, j]),
-                       horizontalalignment='center', verticalalignment='center', color='white')
-
-  plt.tight_layout()
-  plt.show()
-  ```
-
-  ![Plot confusion metric SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5a86814-f223-45ea-892e-22bda98e9af1)
-
-
-  Step 10. Plot Accuracy Before and After SMOTE
-  ```ruby
-  # Get classification reports before and after SMOTE
-  classification_report_before_smote = classification_report(y_test, y_pred_before_smote,   output_dict=True)
-  classification_report_after_smote = classification_report(y_test, y_pred_after_smote, output_dict=True)
-
-  # Extract accuracy values
-  accuracy_before_smote = classification_report_before_smote['accuracy']
-  accuracy_after_smote = classification_report_after_smote['accuracy']
-
-  # Plot accuracy before and after SMOTE
-  labels = ['Before SMOTE', 'After SMOTE']
-  accuracy_scores = [accuracy_before_smote, accuracy_after_smote]
-
-  plt.bar(labels, accuracy_scores, color=['blue', 'green'])
-  plt.xlabel('SMOTE')
-  plt.ylabel('Accuracy')
-  plt.title('Accuracy of SVM before and after SMOTE')
-  plt.ylim(0, 1)  # Limit y-axis from 0 to 1 for accuracy range
-  plt.show()
-  ```
-  ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0cee870f-92b6-4a87-87f0-d3ada2d971e9)
-
-  > Advantages: <br>
-  >> - Effective in High Dimensional Spaces <br>
-  >> - Still effective in cases where number of dimensions is greater than the number of samples
-  >> - Uses a subset of training points in the decision function/support vectors, so it is also memory efficient
-  >> - Versatile: different kernel functions can be specified for the decision function.
-
-  > Disadvantages: <br>
-  >> - If the number of features is much greater than the number of samples, avoid over-fitting in choosing kernel functions and regularization term is crucial <br>
-  >> - SVM do not directly provide probability estimates, these are calculated using an expensive five fold cross validation<br>
-
-- Which algorithm is best for prediction? <br>
+- Algoritma mana yang terbaik untuk prediksi? <br>
   | Logistic Regression | Neural Network | Support Vector Machine |
   | :---: | :---: | :---: | 
   | ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/051a8bc0-2c44-4e54-a377-18e6c0e9e5bb) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/635bc08d-d78f-4b57-b6c2-c71549879242) | ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ac82d963-2026-4273-bcdc-2ed9f84a5033) | <br>
 
-  The best algorithms for predicion Binary Integer Data in this case is ***Neural Network + SMOTE*** with accuracy 98%. Based on the plotting of accuracy results between NN Before and After SMOTE, Neural Network can automatically learn relevant features from raw data and have a flexibility in various architectures which enables them to capture different types of patterns and structures in the data, making them adaptable to diverse classification tasks across various domains. In this model, impelenting Activation RelU Function in input layer, hidden layer and Acitvation Sigmoid Function in Output layer are the main reason why Neural Network is the most appropriate algorithms for classifying Target Labelled into binary ineteger data. <br>
+  Algoritma terbaik untuk predicion Binary Integer Data dalam hal ini adalah ***Neural Network + SMOTE*** dengan akurasi 98%. Berdasarkan plot hasil akurasi antara NN Before dan After SMOTE, Neural Network dapat secara otomatis mempelajari fitur-fitur yang relevan dari data mentah dan memiliki fleksibilitas dalam berbagai arsitektur yang memungkinkan mereka untuk menangkap berbagai jenis pola dan struktur dalam data, membuatnya mudah beradaptasi dengan beragam tugas klasifikasi di berbagai domain. Dalam model ini, mendorong Fungsi RelU Aktivasi di lapisan input, lapisan tersembunyi dan Fungsi Acitvation Sigmoid dalam lapisan Output adalah alasan utama mengapa Neural Network adalah algoritma yang paling tepat untuk mengklasifikasikan Target yang Diberi Label ke dalam data ineteger biner. <br>
 
    ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/6c8ead2e-918c-4eb4-ba1f-c364b1270279)
 
 ## Evaluation
-- What metrics evaluation is used in this project and how it works? <br> 
-The metrics evaluation used are [Confusion Metrics, Accuracy, Precision, Sensitivity(Recall), Specificity and F1-Score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61). Those performance metrics are commonly used to evaluate a Binary Classification Model. Let's define each metric and how they work below: <br>
+- Evaluasi metrik apa yang digunakan dalam proyek ini dan cara kerjanya? <br> 
+Evaluasi metrik yang digunakan adalah [Confusion Metrics, Accuracy, Precision, Sensitivity(Recall), Specificity and F1-Score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61). Metrik kinerja tersebut biasanya digunakan untuk mengevaluasi Model Klasifikasi Biner. Mari kita tentukan setiap metrik dan cara kerjanya di bawah ini:<br>
 1. Confusion Metric: <br>
-   A Tabular summary of True/False and Positive/Negative prediction rates. It allows to compute various performance metrics. <br>
+   Ringkasan tabular dari tingkat prediksi Benar / Salah dan Positif / Negatif. Hal ini memungkinkan untuk menghitung berbagai metrik kinerja. <br>
 
    ![Basic-Confusion-matrix](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/2fd76ef0-c24e-4ba3-ae8a-0959bf5b1e9a)
    
 2. Accuracy: <br>
-measures the ratio of correct predictions from all predicted results. <br>
+mengukur rasio prediksi yang benar dari semua hasil yang diprediksi. <br>
 
    ![accurcay score measuring](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/dd2b037c-cb5d-4cbd-a49c-547d67154a16)
 
 3. Precision: <br>
-measures what proportion of the positive predictions is actually positive. The precision score is useful for the succes of prediction when classes are very imbalanced and when it's significantly cost-efficient to identify all positive examples without any false positive. <br>
+mengukur berapa proporsi prediksi positif yang sebenarnya positif. Skor presisi berguna untuk keberhasilan prediksi ketika kelas sangat tidak seimbang dan ketika secara signifikan hemat biaya untuk mengidentifikasi semua contoh positif tanpa positif palsu.
+
+<br>
 
    ![precision formula](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8d654914-c0eb-4047-95f6-e72aa5e9efbb)
 
 4. Sensitivity/Recall: <br>
-represents the model’s ability to correctly predict the positives out of actual positives. The higher the recall score, the better the machine learning model is at identifying positives. <br>
+mewakili kemampuan model untuk memprediksi dengan benar positif dari positif aktual. Semakin tinggi skor penarikan, semakin baik model pembelajaran mesin dalam mengidentifikasi hal-hal positif. <br>
    ![recall formula](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8a47bebf-2e71-4b39-8147-8d90b0ff3673)
 
 5. Specificity: <br>
-represents the model’s ability to correctly predict the negatives out of actual negatives. The higher the specificity score, the better the machine learning model is at identifying negatives. <br>
+mewakili kemampuan model untuk memprediksi dengan benar negatif dari negatif aktual. Semakin tinggi skor spesifisitas, semakin baik model pembelajaran mesin dalam mengidentifikasi negatif. <br>
 
    ![specificity](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0a7141f5-3bf6-4c89-bfcf-51010985190a)
 
 6. F1 Score: <br>
-combine the precision and recall of the model, and it is the harmonic mean of the precision and recall. It’s used often when data is imbalanced. <br>
+menggabungkan ketepatan dan penarikan kembali model, dan itu adalah rata-rata harmonik dari presisi dan penarikan. Ini sering digunakan ketika data tidak seimbang. <br>
 
    ![f1 score](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/4a047010-c742-47c0-a375-015bf2b223c8)
 
  
-- Explanation of The Metrics Evaluation Project Results! <br>
+- Penjelasan Hasil Proyek Evaluasi Metrik! <br>
   | X | Logistic Regression | Neural Network |  Support Vector Machine | 
   | :---: | :---: | :---: | :---: | 
   | Confusion Metrics Before SMOTE | ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/4d073946-e2b4-410a-8bb5-749e25f9e604) | ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ffcb28c5-012c-4f6e-a493-563209fc2b98)| ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/29275888-f04f-41a2-a6a8-1a9d46e53f59) | 
   | Confusion Metrics After SMOTE | ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8321ccc2-2688-4992-8264-727ddec9b2ea) |![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ddc13079-5354-42ee-977f-c813b8331355) | ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5d4a8a8-b87f-4782-8a2c-f8091f30e178)|
   | Plot Accuracy |  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/051a8bc0-2c44-4e54-a377-18e6c0e9e5bb) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/635bc08d-d78f-4b57-b6c2-c71549879242) | ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ac82d963-2026-4273-bcdc-2ed9f84a5033) |
 
-  To racap, on the comparison of confusion matrix and accuracy values plot results above, Neural Network with SMOTE has the highest accuracy score and great confusion matrics so this algorithms is the most suitable and approriate model for predictiong Breast Tumor Diagnosis using Quantitative Cell-Nuclear Phenotypes Features. The flexibility of Neural Network Architectures makes enables to capture different types of patterns/structures in dataset and learn relevant numerical features to predict Binary Integer Data whether it is Benign (0) or Malignant (1).
+ Pada perbandingan matriks kebingungan dan nilai akurasi hasil di atas, Neural Network dengan SMOTE memiliki skor akurasi tertinggi dan matriks kebingungan yang hebat sehingga algoritma ini adalah model yang paling cocok dan tepat untuk prediksi Diagnosis Tumor Payudara menggunakan Fitur Phenotip Sel-Nuklir Kuantitatif. Fleksibilitas Arsitektur Jaringan Neural memungkinkan untuk menangkap berbagai jenis pola/struktur dalam dataset dan pelajari fitur numerik yang relevan untuk memprediksi Binary Integer Data apakah itu Benign (0) atau Malignant (1).
 
 ## Conclusion 
-1. Not all features have an impact to the algorithms in the model prediction.
-2. Neural Network with handling imbalanced data using SMOTE, give the greatest accuracy so this algorithm is the best model for predicting Breast Tumor Diagnosis.
-3. Yes, SMOTE influences the high accuracy of the model.
+1. Tidak semua fitur berdampak pada algoritma dalam prediksi model.
+2. Neural Network dengan menangani data yang tidak seimbang menggunakan SMOTE, memberikan akurasi terbesar sehingga algoritma ini adalah model terbaik untuk memprediksi Diagnosis Tumor Payudara.
+3. Ya, SMOTE memengaruhi akurasi tinggi model.
