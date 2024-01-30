@@ -1,7 +1,4 @@
-# Machine Learning Project Report - Muhammad Adin Palimbani
->### ***"Breast Tumor Prediction and Diagnosis Using Logistic Regression, Neural Network and Support Vector Machine Algorithms"*** - Predictive Analytics
-
-<img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/blob/02935c3aedf355fbce58e95d36dfaf547f90fab5/images/Histology-of-left-breast-cancer-The-tumor-is-composed-of-large-nests-with-central-comedo.png" width="490"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/de1f9259-51cd-4e2f-afe1-9a1e9e55dbdf" width="320"/> 
+# Laporan Proyek Machine Learning - Muhammad Adin Palimbani
 
 ## Project Domain 
 1. Issue Focus? <br>
