@@ -611,8 +611,14 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
   >> - If the number of features is much greater than the number of samples, avoid over-fitting in choosing kernel functions and regularization term is crucial <br>
   >> - SVM do not directly provide probability estimates, these are calculated using an expensive five fold cross validation<br>
 
-- Which algorithm is best for prediction?
-  The best algorithms for predicion Binary Integer Data is Neural Network + SMOTE with accuracy 96%. 
+- Which algorithm is best for prediction? <br>
+  | Logistic Regression | Neural Network | Support Vector Machine |
+  | :---: | :---: | :---: | 
+  | ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/051a8bc0-2c44-4e54-a377-18e6c0e9e5bb) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/635bc08d-d78f-4b57-b6c2-c71549879242) | ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ac82d963-2026-4273-bcdc-2ed9f84a5033) | <br>
+
+  The best algorithms for predicion Binary Integer Data in this case is ***Neural Network + SMOTE*** with accuracy 98%. Based on the plotting of accuracy results between NN Before and After SMOTE, Neural Network can automatically learn relevant features from raw data and have a flexibility in various architectures which enables them to capture different types of patterns and structures in the data, making them adaptable to diverse classification tasks across various domains. In this model, impelenting Activation RelU Function in input layer, hidden layer and Acitvation Sigmoid Function in Output layer are the main reason why Neural Network is the most appropriate algorithms for classifying Target Labelled into binary ineteger data. <br>
+
+   ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/6c8ead2e-918c-4eb4-ba1f-c364b1270279)
 
 ## Evaluation
 - What metric evalution used in this case?
