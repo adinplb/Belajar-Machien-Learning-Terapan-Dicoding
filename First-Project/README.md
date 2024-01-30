@@ -610,11 +610,48 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
    ![NN_Accuracy Before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/6c8ead2e-918c-4eb4-ba1f-c364b1270279)
 
 ## Evaluation
-- What metric evalution used in this case?
-- Exaplain project result based on metric evaluation
-- Menjelaskan metrik evaluasi yang digunakan untuk mengukur kinerja model. Misalnya, menjelaskan formula metrik dan bagaimana metrik tersebut bekerja
+- What metrics evaluation is used in this project and how it works? <br> 
+The metrics evaluation used are [Confusion Metrics, Accuracy, Precision, Sensitivity(Recall), Specificity and F1-Score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61). Those performance metrics are commonly used to evaluate a Binary Classification Model. Let's define each metric and how they work below: <br>
+1. Confusion Metric: <br>
+   A Tabular summary of True/False and Positive/Negative prediction rates. It allows to compute various performance metrics. <br>
+
+   ![Basic-Confusion-matrix](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/2fd76ef0-c24e-4ba3-ae8a-0959bf5b1e9a)
+   
+2. Accuracy: <br>
+measures the ratio of correct predictions from all predicted results. <br>
+
+   ![accurcay score measuring](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/dd2b037c-cb5d-4cbd-a49c-547d67154a16)
+
+3. Precision: <br>
+measures what proportion of the positive predictions is actually positive. The precision score is useful for the succes of prediction when classes are very imbalanced and when it's significantly cost-efficient to identify all positive examples without any false positive. <br>
+
+   ![precision formula](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8d654914-c0eb-4047-95f6-e72aa5e9efbb)
+
+4. Sensitivity/Recall: <br>
+represents the model’s ability to correctly predict the positives out of actual positives. The higher the recall score, the better the machine learning model is at identifying positives. <br>
+   ![recall formula](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8a47bebf-2e71-4b39-8147-8d90b0ff3673)
+
+5. Specificity: <br>
+represents the model’s ability to correctly predict the negatives out of actual negatives. The higher the specificity score, the better the machine learning model is at identifying negatives. <br>
+
+   ![specificity](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/0a7141f5-3bf6-4c89-bfcf-51010985190a)
+
+6. F1 Score: <br>
+combine the precision and recall of the model, and it is the harmonic mean of the precision and recall. It’s used often when data is imbalanced. <br>
+
+   ![f1 score](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/4a047010-c742-47c0-a375-015bf2b223c8)
+
+ 
+- Explanation of The Metrics Evaluation Project Results! <br>
+  | X | Logistic Regression | Neural Network |  Support Vector Machine | 
+  | :---: | :---: | :---: | :---: | 
+  | Confusion Metrics Before SMOTE | ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/4d073946-e2b4-410a-8bb5-749e25f9e604) | ![NN_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ffcb28c5-012c-4f6e-a493-563209fc2b98)| ![SVM_Before smote Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/29275888-f04f-41a2-a6a8-1a9d46e53f59) | 
+  | Confusion Metrics After SMOTE | ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/8321ccc2-2688-4992-8264-727ddec9b2ea) |![NN After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ddc13079-5354-42ee-977f-c813b8331355) | ![SVM_After SMOTE Confusion](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/e5d4a8a8-b87f-4782-8a2c-f8091f30e178)|
+  | Plot Accuracy |  ![LogReg_Accuracy_Before and after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/051a8bc0-2c44-4e54-a377-18e6c0e9e5bb) | ![NN_Diagram Accuracy before after smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/635bc08d-d78f-4b57-b6c2-c71549879242) | ![SVM Accuracy Before adn After SVM](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/ac82d963-2026-4273-bcdc-2ed9f84a5033) |
+
+  To racap, on the comparison of confusion matrix and accuracy values plot results above, Neural Network with SMOTE has the highest accuracy score and great confusion matrics so this algorithms is the most suitable and approriate model for predictiong Breast Tumor Diagnosis using Quantitative Cell-Nuclear Phenotypes Features. The flexibility of Neural Network Architectures makes enables to capture different types of patterns/structures in dataset and learn relevant numerical features to predict Binary Integer Data whether it is Benign (0) or Malignant (1).
 
 ## Conclusion 
-1. Not all features have an impact to the algorithms in model prediction.
-2. Neural Network with handling imbalanced data using SMOTE, give the greatest accuracy value so this algorithm becomes the best model for predicting Breast Tumor Diagnosis.
+1. Not all features have an impact to the algorithms in the model prediction.
+2. Neural Network with handling imbalanced data using SMOTE, give the greatest accuracy so this algorithm is the best model for predicting Breast Tumor Diagnosis.
 3. Yes, SMOTE influences the high accuracy of the model.
