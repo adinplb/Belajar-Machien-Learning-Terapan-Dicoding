@@ -615,6 +615,6 @@ To solve this Binary Classification of Medical Diagnosis issue, implementing Log
 - Menjelaskan metrik evaluasi yang digunakan untuk mengukur kinerja model. Misalnya, menjelaskan formula metrik dan bagaimana metrik tersebut bekerja
 
 ## Conclusion 
-1. Tidak semua fitur memiliki pengaruh dalam prediksi model
-2. Neural Network dengan penangana imbalanece data memberikan nilai MSE paling kecil sehingga algoritma ini menjadi model terbaik
-3. Iya, SMOTE memberikan tingkat akurasi yang tinggi dan nilai MSE yang rendah
+1. Not all features have an impact to the algorithms in model prediction.
+2. Neural Network with handling imbalanced data using SMOTE, give the greatest accuracy value so this algorithm becomes the best model for predicting Breast Tumor Diagnosis.
+3. Yes, SMOTE influences the high accuracy of the model.
