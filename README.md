@@ -1,62 +1,62 @@
 # Laporan Proyek Machine Learning - Muhammad Adin Palimbani
 
 ## Project Domain 
-1. Issue Focus? <br>
-The significant advances in cancer research over the past decades has been carried out with the advent of new technologies in the field of medicine. Scientists have conducted a new approach with different methods for the early prediction of cancer treatment outcome particularly Breast Cancer. One of the example approaches applied is the growing trend on Machine Learning Techniques. However, a common problem in several research is the lack of external validation or testing regarding the predictive performance of their models and also handling imbalanced data.  This may lead to malformed prediction models and system failures at the production stage
+1. Fokus Isu? <br>
+Kemajuan yang signifikan dalam penelitian kanker selama beberapa dekade terakhir telah dilakukan dengan munculnya teknologi baru di bidang kedokteran. Para ilmuwan telah melakukan pendekatan baru dengan metode yang berbeda untuk prediksi awal hasil pengobatan kanker terutama Kanker Payudara. Salah satu contoh pendekatan yang diterapkan adalah tren yang berkembang pada Teknik Pembelajaran Mesin. Namun, masalah umum dalam beberapa penelitian adalah kurangnya validasi eksternal atau pengujian mengenai kinerja prediktif model mereka dan juga menangani data yang tidak seimbang. Ini dapat menyebabkan model prediksi yang salah dan kegagalan sistem pada tahap produksi
 
-2. Why does the issue need to be resolved? <br>
-The accurate prediction models of a disease outcome is extremely depends on the medical data of the patient. Medical data contains the patient's details condition and diagnosis which hold unnecessary and interrelated data. Those data is high dimensional data as well in particular the integration of clinical and genomic mixed data. In several studies, scientists have proved that approaches related to the genomic characteristics provides promising results for cancer detection and identification, for instances, digitized image of a fine needle aspirate (FNA) of a breast mass which represent cell nuclear characteristics in Breast Tumor. However, these methods suffer from low sensitivity regarding their use in screening at early stages and difficulty to determine benign from malignant tumors. This is the reason why the cancer predictive performance models issue need to be resolved in order to prevent malformed prediction and system failures. 
+2. Mengapa masalah ini perlu diselesaikan?? <br>
+Model prediksi akurat dari hasil penyakit sangat tergantung pada data medis pasien. Data medis berisi kondisi detail pasien dan diagnosis yang menyimpan data yang tidak perlu dan saling terkait. Data tersebut adalah data dimensi tinggi juga khususnya integrasi data campuran klinis dan genom. Dalam beberapa penelitian, para ilmuwan telah membuktikan bahwa pendekatan yang berkaitan dengan karakteristik genom memberikan hasil yang menjanjikan untuk deteksi dan identifikasi kanker, misalnya, gambar digital dari aspirat jarum halus (FNA) dari massa payudara yang mewakili karakteristik nuklir sel dalam Tumor Payudara. Namun, metode ini menderita sensitivitas rendah mengenai penggunaannya dalam skrining pada tahap awal dan kesulitan untuk menentukan jinak dari tumor ganas.Ini adalah alasan mengapa masalah model kinerja prediktif kanker perlu diselesaikan untuk mencegah prediksi yang salah dan kegagalan sistem. 
 
-3. How to address the issue? <br>
-Interactive image processing techniques, along with a linear programming based inductive classifier, have been used to creeate a highly accurate system for diagnosis of Breast Tumors. A small fraction of a Fine Needle Aspirate Slide (FNA) is selected and digitized. The digitized image of a FNA of a Breast mass describe chracteristics of the cell nuclei present in the image. Those are computed and become features for this research. So we could possibily diagnosed whether it is Malignant or Benign through Nuclear Feature Extraction.
+3. Bagaimana cara mengatasi masalah ini? <br>
+Teknik pemrosesan gambar interaktif, bersama dengan pengklasifikasi induktif berbasis pemrograman linier, telah digunakan untuk merambat sistem yang sangat akurat untuk diagnosis Tumor Payudara. Sebagian kecil dari Fine Needle Aspirate Slide (FNA) dipilih dan didigitalkan. Gambar digital dari FNA dari massa Payudara menggambarkan chracteristics dari inti sel yang ada dalam gambar. Itu dihitung dan menjadi fitur untuk penelitian ini. Jadi kita bisa mendiagnosis apakah itu ganas atau jinak melalui Ekstraksi Fitur Nuklir.
 
-4. Related Research References from Credible Sources: <br> 
+4. Referensi Penelitian Terkait dari Sumber yang Dapat Dipercaya:: <br> 
 [Nuclear Feature Extraction For Breast Tumor Diagnosis](https://minds.wisconsin.edu/bitstream/handle/1793/59692/TR1131.pdf;jsessionid=0449D8C1D78CAAB2BF57B76AABE87312?sequence=1). <br>
 [Prediction of parameters of liver tumor using feature extraction and supervised function](https://www.sciencedirect.com/science/article/pii/S2665917422000204). <br>
 [Machine Learning Algorithms For Breast Cancer Prediction And Diagnosis](https://www.sciencedirect.com/science/article/pii/S1877050921014629). <br>
 [Quantitative nuclear phenotype signatures predict nodal disease in oral squamous cell carcinoma](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8568158/). <br>
 
 ## Business Understanding
-Breast Tumor Diagnosis has been conducted by [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); a type of biopsy which uses a very thin needle and syringe to remove a sample of cells, tissue or fluid from an abnormal area or lump in the body. FNAs has been able to diagnose successfully in examining the cell nuclear phenotypes and become a features which indicates a higher likelihood of malignancy. The computer vision diagnostics system extracts 10 different features from the snake-generated cell nuclei boundaries. Those extracted features are numerically modeled which consist of ***Radius***, ***Perimeter***, ***Area***, ***Compactness***, ***Smoothness***, ***concavity***, ***Concave Points***, ***Symmetry***, ***Fratal Dimension*** and ***Texture***. In addition, there is a diagnosis breast tumor features which represent a malignant or bening so in this project there is a target labelled to predict whether it is a benign or malignant tumor. A Supervised Machine Learning model is suitable for solving this issue by using the quantitative cell nuclear phenotypes of Breast Tumor and followed by handling imbalanced data.
+Diagnosis Tumor Payudara telah dilakukan oleh [Fine Needle Aspiration (FNA)](https://cancer.ca/en/treatments/tests-and-procedures/fine-needle-aspiration-fna); jenis biopsi yang menggunakan jarum dan jarum suntik yang sangat tipis untuk menghilangkan sampel sel, jaringan atau cairan dari area abnormal atau benjolan dalam tubuh. FNA telah berhasil mendiagnosis fenotip nuklir sel dan menjadi fitur yang menunjukkan kemungkinan keganasan yang lebih tinggi. Sistem diagnostik visi komputer mengekstrak 10 fitur berbeda dari batas inti sel yang dihasilkan ular. Fitur yang diekstraksi dimodelkan secara numerik yang terdiri dari Radius, Perimeter, Area, Kekompakan, Kelancaran, rasa hormat, Poin Cekung, Simetri, Dimensi Fratal dan Tekstur. Selain itu, ada diagnosis fitur tumor payudara yang mewakili ganas atau bening sehingga dalam proyek ini ada target berlabel untuk memprediksi apakah itu tumor jinak atau ganas. Model Supervision Machine Learning cocok untuk menyelesaikan masalah ini dengan menggunakan fenotipe nuklir sel kuantitatif Breast Tumor dan diikuti dengan menangani data yang tidak seimbang.
 
 ### Problem Statement
-1. Does each feature in this dataset have an influence on breast tumor prediction model?
-2. Which Machine Learning model present the best prediction model and could solve the issue?
-3. How does handling imbalanced data give an affect to prediction model?
+1. Apakah setiap fitur dalam dataset ini memiliki pengaruh pada model prediksi tumor payudara?
+2. Model Machine Learning mana yang menyajikan model prediksi terbaik dan dapat menyelesaikan masalah?
+3. Bagaimana cara menangani data yang tidak seimbang memberikan pengaruh pada model prediksi?
 
 ### Goals
-1. Find features that have an influential on breast tumor prediction
-2. Find the best Machine Learning Model that could possibly solve the problem
-3. Find the affect of SMOTE in handling imbalanced data for model prediction
+1. Temukan fitur yang berpengaruh pada prediksi tumor payudara
+2. Temukan Model Pembelajaran Mesin terbaik yang mungkin bisa menyelesaikan masalah
+3. Temukan pengaruh SMOTE dalam menangani data yang tidak seimbang untuk prediksi model
 
 ### Solution Statements
-To reach out good Breast Cancer Prediction, using 3 different type of Binary Classification model for predicting whether the diagnosis is benign (0) or malignant (1) in Supervised Machine Learning Algorithms. Those algorithms are suitable for predicting one of two possible outcomes. In addtion, SMOTE will be implemented as well for handling imbalanced data. The algorithms for binary classification are as follows: <br>
+Untuk mencapai Prediksi Kanker Payudara yang baik, menggunakan 3 jenis model Klasifikasi Biner yang berbeda untuk memprediksi apakah diagnosisnya jinak (0) atau ganas (1) dalam Algoritma Pembelajaran Mesin yang Dibimbing. Algoritma tersebut cocok untuk memprediksi salah satu dari dua hasil yang mungkin. Sebagai tambahan, SMOTE akan diterapkan juga untuk menangani data yang tidak seimbang. Algoritma untuk klasifikasi biner adalah sebagai berikut: <br>
 
 - [Binary Logistic Regression](https://www.datascienceinstitute.net/blog/binary-logistic-regression-an-introduction#:~:text=Binary%20logistic%20regression%20models%20the,or%20presence%20and%20so%20on.) <br>
-Binary Logistic Regression is the relationship between a set of independent variables; categorical or continous, and a binary dependent variables; like benign or malignant, deadth or survival, so on and so forth. Logistic regression is commonly used for classification issues which predict the values of target labelled 0 or 1. The logistic regression curve is a sigmoid curve. Common performance metrics to evaluate a binary classification model is Confusion metrics, accuracy score; ratios of correct predictions, Precision; proportion of the posivtive predictions is actual positive, Sensitivity (recall); the higher the recall score, the better the ML model is at identifying positives, Specificity; correctly predict the negatives out of actual negatives, F-Score(F1-Score);combine the precision and recall. In medical diagnosis, anything that doesn’t account for false negatives is serious, so [recall score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61) is a better measure than precision in this case.
+Binary Logistic Regression adalah hubungan antara satu set variabel independen; kategori atau kontinu, dan variabel dependen biner; seperti jinak atau ganas, mati atau bertahan hidup, begitu seterusnya dan seterusnya. Regresi logistik biasanya digunakan untuk masalah klasifikasi yang memprediksi nilai target berlabel 0 atau 1. Kurva regresi logistik adalah kurva sigmoid. Metrik kinerja umum untuk mengevaluasi model klasifikasi biner adalah Metrik kebingungan, skor akurasi; rasio prediksi yang benar, Presisi; proporsi prediksi positif adalah positif aktual, Sensitivitas (ingat); semakin tinggi skor penarikan, semakin baik model ML dalam mengidentifikasi positif, Spesifisitas; memprediksi dengan benar negatif dari negatif aktual, F-Score (F1-Score); menggabungkan presisi dan penarikan kembali. Dalam diagnosis medis,apa pun yang tidak memperhitungkan negatif palsu adalah serius, jadi [recall score](https://medium.com/javarevisited/evaluating-the-logistic-regression-ae2decf42d61) adalah ukuran yang lebih baik daripada presisi dalam hal ini.
 
 - [Neural Network](https://medium.com/afblabs-data-science/a-simple-neural-networks-for-binary-classification-understanding-feed-forward-68c3c0659f78) <br>
-Neural network is a simplistic form network to classify as well regress the input variable data so as to match the actual variable, referred as y or target variable. The predicted value is then improved over many iterations called epochs by computing and minimizing the error loss. There are 3 different layers in Neural Network; input layer, hidden layer and output layer. In neural network, Keras library is commonly used in Deep Learning models. For binary classification using Neural Network, Loss Function used is Binary Crossentrophy and Activation Function type is Sigmoid. Performance Metrics Evaluaion for Binary classification in Neural Network is [Accuracy](https://towardsdatascience.com/the-explanation-you-need-on-binary-classification-metrics-321d280b590f). 
+Jaringan saraf adalah jaringan bentuk sederhana untuk mengklasifikasikan juga menekan ulang data variabel input agar sesuai dengan variabel aktual, disebut sebagai y atau variabel target. Nilai yang diprediksi kemudian ditingkatkan selama banyak iterasi yang disebut zaman dengan menghitung dan meminimalkan kehilangan kesalahan. Ada 3 lapisan berbeda di Neural Network; lapisan input, lapisan tersembunyi dan lapisan output. Dalam jaringan saraf, perpustakaan Keras umumnya digunakan dalam model Pembelajaran Mendalam. Untuk klasifikasi biner menggunakan Neural Network, Loss Function yang digunakan adalah Binary Crossentrophy dan tipe Activation Function adalah Sigmoid. Metrik Kinerja Evaluaion untuk klasifikasi biner di Neural Network adalah [Accuracy](https://towardsdatascience.com/the-explanation-you-need-on-binary-classification-metrics-321d280b590f). 
 
 - [Support Vector Machine](https://medium.com/@24littledino/support-vector-machine-svm-in-python-fc3a4ffd25b6) <br>
-Support Vector Machine is a set of Supervised Learning Methods used for Binary classification problem, regression and outliers detection.In particular, SVM Projects data to higher dimension, finds the optimal hyperplane that can maximize the soft margin, and uses that hyperplane as a threshold to classify new data points. To evaluate SVM models for classification tasks, it's more appropriate to use classification-specific metrics such as accuracy, precision, recall, F1-score, and area under the ROC curve (ROC-AUC). These metrics provide insights into the SVM model's ability to classify instances correctly across different classes and account for the inherent characteristics of classification tasks.
+Mesin Dukungan Vektor adalah seperangkat Metode Pembelajaran yang Dibimbing yang digunakan untuk masalah klasifikasi biner, deteksi regresi dan pencilan. Secara khusus, data Proyek SVM ke dimensi yang lebih tinggi, menemukan hyperplane optimal yang dapat memaksimalkan margin lunak, dan menggunakan hyperplane itu sebagai ambang batas untuk mengklasifikasikan titik data baru. Untuk mengevaluasi model SVM untuk tugas klasifikasi, lebih tepat menggunakan metrik khusus klasifikasi seperti akurasi, presisi, penarikan kembali, skor F1, dan area di bawah kurva ROC (ROC-AUC). Metrik ini memberikan wawasan tentang kemampuan model SVM untuk mengklasifikasikan instance dengan benar di berbagai kelas dan memperhitungkan karakteristik yang melekat pada tugas klasifikasi.
 
 ## Data Understanding
-Dataset used are collected from Kaggle. It is [Breast Cancer Wisconsin (Diagnostic) Dataset](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data/code). Dataset is in CSV File Format which total class contribution are 357 Benign and 212 Malignant. Dataset is consist of 569 rows and 33 Features; 1 Categorical Features and 32 Numerical Features. One Categorical Features will be converted into Binary Integer as Target Labelled. Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image. All feature values are recorded with four significant digits and none missing values. The extracted features are as follows: <br>
-1. ***Radius***: The radius of and individual nucleaus is measured by averaging the length of the radial line segments defined by the centeroid of the snake and the individual snake points.
-2. ***Perimeter***: The total distance between the snake point constitues the nuclear perimeter.
-3. ***Area***: Nuclear area is measured simply by counting the number of pixels on the interior of the snake and adding one-hald of the pixels in the perimeter.
-4. ***Compactness***: Perimeter and area are combined to give a measure of the compactness of the cell nuclei using the formula perimeter<sup>2</sup>/area.
-5. ***Smoothness***: Quantified by measuring the difference between the length of a radial line and the mean length of the lines surrounding it.
-6. ***Concavity***: Severity of concave portions of the contour
-7. ***Concave points***: Number of concave portions of the contour
-8. ***Symmetry***: In order to measure symmetry, the major axis, or longest chord through the center, is found.
-9. ***Fractal Dimension***: Approximated using the "Coastline Approximation" described by Mandelbrot.
-10. ***Texture***: meaasured by finding the variance of the gray scale intensities in the component pixels.<br>
-11. ***Diagnostic***: Benign and Malignant
+Dataset yang digunakan dikumpulkan dari Kaggle. Ini [Breast Cancer Wisconsin (Diagnostic) Dataset](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data/code). Dataset dalam Format File CSV yang total kontribusi kelasnya adalah 357 Benign dan 212 Malignant. Dataset terdiri dari 569 baris dan 33 Fitur; 1 Fitur Kategorikal dan 32 Fitur Numerik. Satu Fitur Kategorikal akan dikonversi menjadi Binary Integer sebagai Target Labeled. Fitur-fitur dihitung dari gambar digital aspirasi jarum halus (FNA) dari massa payudara. Mereka menggambarkan karakteristik inti sel yang ada dalam gambar. Semua nilai fitur dicatat dengan empat digit signifikan dan tidak ada nilai yang hilang. Fitur yang diekstraksi adalah sebagai berikut: <br>
 
->Additional Notes:
->_mean, _se (standar error) and _worst (largest): mean of the 3 largest values of these features were computed for each image, resulting in 30 features. For instance: field 3 is mean radius, field 13 is radius_se, field 23 is worst radius.
+1. ***Radius***:  Jari-jari dan masing-masing nukleus diukur dengan rata-rata panjang segmen garis radial yang ditentukan oleh centeroid ular dan masing-masing titik ular.
+2. ***Perimeter***: Jarak total antara titik ular merupakan perimeter nuklir.
+3. ***Area***: Area nuklir diukur hanya dengan menghitung jumlah piksel pada bagian dalam ular dan menambahkan satu-bantalan piksel dalam perimeter.
+4. ***Compactness***: Perimeter dan area digabungkan untuk memberikan ukuran kekompakan inti sel menggunakan rumus perimeter2/area.
+5. ***Smoothness***: Diukur dengan mengukur perbedaan antara panjang garis radial dan panjang rata-rata garis di sekitarnya.
+6. ***Concavity***: Tingkat keparahan bagian cekung dari kontur
+7. ***Concave points***: Jumlah bagian cekung dari kontur
+8. ***Symmetry***: Untuk mengukur simetri, sumbu utama, atau akor terpanjang melalui pusat, ditemukan.
+9. ***Fractal Dimension***: Diperkirakan menggunakan "Pendekatan Coastline" yang dijelaskan oleh Mandelbrot.
+10. ***Texture***: diukur dengan menemukan varians dari intensitas skala abu-abu dalam piksel komponen.
+11. ***Diagnostic***: Jinak dan ganas
+
+> Catatan Tambahan: _mean, _se (kesalahan standar) dan _worst (terbesar): rata-rata dari 3 nilai terbesar dari fitur ini dihitung untuk setiap gambar, menghasilkan 30 fitur. Misalnya: bidang 3 adalah jari-jari rata-rata, bidang 13 adalah jari-jari_se, bidang 23 adalah jari-jari terburuk.
 
  . | radius_mean | radius_se | radius_worst | 
  --- | --- | --- | --- | 
@@ -64,214 +64,87 @@ Definition | mean of distances from center to points on the perimeter | standard
 Values | 17.99 | 1.095| 25.38 | 
 
 ### Exploratory Data Analysis and Visualization
-#### Check Data Type
-```ruby
-df.info()
-```
+#### Periksa Jenis Data
 ![df info](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/34570f7b-7e16-414e-89f6-0599f85d0f78)
 
-#### Check Missing Values
-```ruby
-print(df.isna().sum())
-```
+#### Periksa Missing Values
 ![df isna](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/e14838d5-5672-4119-95dd-fd14397d81d0)
 
-#### Check Data Duplication
-```ruby
-print("Jumlah yang terduplikasi:", df.duplicated().sum())
-```
+#### Periksa Data Duplication
 ![df duplicated](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/78819fb9-3ed0-47f7-97fa-da9328168a27)
 
-#### Descriptive Statistics Analysis
-```ruby
-df.describe()
-```
+#### Analisis Statistik Deskriptif
 ![df describe](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/9b0f5c49-5927-4b31-adad-21dcd35e6f67)
 
-#### Check Outliers
-Four Example Features used to Check Outliers:
-```ruby
-sns.boxplot(x=df['radius_mean'])
-sns.boxplot(x=df['texture_mean'])
-sns.boxplot(x=df['perimeter_mean'])
-sns.boxplot(x=df['area_mean'])
-```
+#### Periksa Outliers
+Empat Contoh Fitur yang digunakan untuk Memeriksa Outlier:
+
 | radius_mean | texture_mean | perimeter mean | area mean |
 | :---: | :---: | :---: | :---: | 
 | ![radius mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/319ae8e9-47d5-46df-b475-69291e915794)  | ![texture mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/2b529395-c8a8-4c5d-8dd4-68ab9de92e6a) |  ![perimeter mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/e3edbf37-30f9-4cca-88b8-06df171c8002)  | ![area mean](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/cac1e7b7-c579-4d9a-b860-67c326c7a144) |
 
 #### Univariate Analysis
-```ruby
-df.hist(bins=50, figsize=(20,15))
-plt.show()
-```
 ![univariate analysis](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/ac1b6f89-6e0e-4a0f-a564-19ed276c37bc)
 
 #### Multivariate Analysis
-```ruby
-# Observe relation among numerical features using pairplot() 
-sns.pairplot(df, diag_kind = 'kde')
-```
 ![pairplot](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/0b1edff5-93de-4089-8fdc-1fe13e92836f)
-
-```ruby
-plt.figure(figsize=(20, 18))
-correlation_matrix = df.corr().round(2)
-# parameter anot=true is used for printing value inside the box
-sns.heatmap(data=correlation_matrix, annot=True, cmap='coolwarm', linewidths= 0.5, )
-plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
-```
+<br>
 ![multivariate](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/06078f33-9f1a-4f04-849f-90fb6d9e97de)
 
 ## Data Preparation
-At this stage, PCA feaures reduction, change target labelled type into binary integer, IQR Method, SMOTE and Feature Scalling are approriate techniques for this type of dataset. Moreover, the class contribution in dataset are indeed imbalanced; 357 Benign and 212 Malignant so SMOTE or Synthetic Minority Over-sampling Technique will be implemented. Removing outliers will be performed as well and followed by feature scaling or z-score normalization where they have a mean of 0 and a standard deviation of 1. The data size will be splitted into train set and test set with ratio 80:20. To understand deeply the ins and outs of data preparation is by looking at these several steps: <br>
+Pada tahap ini, pengurangan feaures PCA, ubah tipe berlabel target menjadi bilangan bulat biner, Metode IQR, SMOTE, dan Scalling Fitur adalah teknik approriate untuk jenis dataset ini. Selain itu, kontribusi kelas dalam dataset memang tidak seimbang; 357 Benign dan 212 Malignant sehingga SMOTE atau Teknik Over-sampling Minoritas Sintetis akan diterapkan. Menghapus outlier akan dilakukan juga dan diikuti oleh penskalaan fitur atau normalisasi skor-z di mana mereka memiliki rata-rata 0 dan standar deviasi 1. Ukuran data akan dipecah menjadi set kereta dan set tes dengan rasio 80:20. Untuk memahami secara mendalam seluk beluk persiapan data adalah dengan melihat beberapa langkah ini: <br>
 
-1. Convert "Diagnosis" Feature "object" type into "binary integer" values 0 and 1.
->Why is it necessary for this technique to be carried out?
->>Answer: require input features to be numerical so the algorithms can be performed.
-```ruby
-df['diagnosis']=df['diagnosis'].map({'M':1,'B':0})
-```
+1. Ubah "Diagnosis" Fitur tipe "objek" menjadi nilai "biner integer" 0 dan 1.
+>Mengapa teknik ini perlu dilakukan?
+>>Jawab: membutuhkan fitur input menjadi numerik sehingga algoritma dapat dilakukan. <br>
 <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/a29b20da-b0f5-4b34-b066-2c2ed1e285d9"/> <img src="https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/89166fd5-dce2-499c-8a6d-3909cafa9db2"/> 
 
-2. Remove outliers using IQR Method in all Features. Then, check data shape.
->Why is it necessary for this IQR Method to be carried out?
->>Answer: outliers can increase variance in the dataset and the Interquartile Range (IQR) method is a robust and commonly used technique for detecting and removing outliers as well. 
-```ruby
-Q1 = df_baru.quantile(0.25)
-Q3 = df_baru.quantile(0.75)
-IQR=Q3-Q1
-df_baru=df_baru[~((df_baru<(Q1-1.5*IQR))|(df_baru>(Q3+1.5*IQR))).any(axis=1)]
+2. Hapus outliers menggunakan Metode IQR di semua Fitur. Kemudian, periksa bentuk data.
+>Mengapa Metode IQR ini perlu dilakukan?
+>>Jawaban: pencilan dapat meningkatkan varians dalam dataset dan metode Interquartile Range (IQR) adalah teknik yang kuat dan umum digunakan untuk mendeteksi dan menghapus pencilan juga.
 
-# Check data shape after dropping outliers
-df_baru.shape
-```
 ![data shape after drop outliers](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/26534822-5f9f-451a-9efe-cbccc9b7c3eb) <br>
-The dataset has been cleaned and has 398 samples
+Dataset telah dibersihkan dan memiliki 398 sampel
 
-3. Reduce dimension of radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst and area_worst feature using PCA
->Why is it necessary for reducing those features using PCA to be carried out?
->>Answer: The pairplot result shows those six features have a high correlation so they can be reduced using PCA which help to reduce noise and redundancy in dataset.
-```ruby
-from sklearn.decomposition import PCA
-pca = PCA(n_components=1, random_state=123)
-pca.fit(df_baru[['radius_mean', 'perimeter_mean', 'area_mean', 'radius_worst', 'perimeter_worst', 'area_worst']])
-df_baru['dimension'] = pca.transform(df_baru.loc[:, ('radius_mean', 'perimeter_mean', 'area_mean', 'radius_worst', 'perimeter_worst', 'area_worst')]).flatten()
-df_baru.drop(['radius_mean', 'perimeter_mean', 'area_mean', 'radius_worst', 'perimeter_worst', 'area_worst'], axis=1, inplace=True)
-df_baru
-```
+3. Kurangi dimensi fitur radius_mean, perimeter_mean, area_mean, radius_worst, perimeter_worst, dan area_worst menggunakan PCA
+>Mengapa perlu untuk mengurangi fitur-fitur menggunakan PCA untuk dilakukan?
+>>Jawaban: Hasil pairplot menunjukkan keenam fitur tersebut memiliki korelasi yang tinggi sehingga dapat dikurangi menggunakan PCA yang membantu mengurangi kebisingan dan redundansi dalam dataset.
+
 ![dimension](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/bf28fcf9-1c18-4ecd-8284-fd15c807384a)
 
-4. Splitting Data into Train Set and Test Set + SMOTE For imbalanced data
->Why is it necessary for handling imbalanced data using SMOTE to be carried out?
->>Answer: To maximize overall accuracy and minimize MSE which can be misleading when classes are imbalanced and SMOTE (Synthetic Minority Over-sampling Technique) is one of the method used to address this issue.
-```ruby
-pip install imbalanced-learn
-```
-```ruby
-from sklearn.model_selection import train_test_split
-from imblearn.over_sampling import SMOTE
+4. Memisahkan data menjadi Train Set and Test Set + SMOTE Untuk Penanganan Imbalanced data
+>Mengapa perlu untuk menangani data yang tidak seimbang menggunakan SMOTE untuk dilakukan?
+>>Jawaban: Untuk memaksimalkan akurasi keseluruhan dan meminimalkan MSE yang dapat menyesatkan ketika kelas tidak seimbang dan SMOTE (Teknik Over-sampling Minoritas Sintetis) adalah salah satu metode yang digunakan untuk mengatasi masalah ini.
 
-# Assuming X contains your features and y contains the corresponding labels
-# Perform train-test split
-
-X = df.drop(["diagnosis"],axis =1)
-y = df["diagnosis"]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Apply SMOTE only on the training data
-smote = SMOTE(random_state=42)
-X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
-
-# Now, X_train_resampled and y_train_resampled contain the resampled data using SMOTE,
-# while X_test and y_test remain unchanged
-
-# Proceed with model training and evaluation using the resampled training data and the original test data
-
-# Count the number of samples in each class before and after SMOTE
-unique_train, counts_train = np.unique(y_train, return_counts=True)
-unique_train_resampled, counts_train_resampled = np.unique(y_train_resampled, return_counts=True)
-
-# Create a DataFrame to display the results
-data = {
-    'Class': unique_train,
-    'Original Count': counts_train,
-    'Resampled Count': counts_train_resampled
-}
-
-df_result = pd.DataFrame(data)
-print("Before SMOTE:")
-print(df_result)
-
-# Visualize the distribution of classes after SMOTE
-print("\nAfter SMOTE:")
-print("Classes:", unique_train_resampled)
-print("Counts:", counts_train_resampled)
-```
 ![output smote](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/0c0b9474-ad9f-4f9a-9482-8648a8642ae4)
 
-5. Feature Scalling using Z-Score Normalization
->Why is it necessary for feature scalling to be carried out?
->>Answer: To ensures all features have a similar scale, typically between 0 and 1 or around a mean of 0 with a standard deviation of 1. 
-```ruby
-scaler = StandardScaler()
-scaler.fit(X_train[numerical_features])
-X_train[numerical_features] = scaler.transform(X_train.loc[:, numerical_features])
-X_train[numerical_features].head()
-X_train[numerical_features].describe().round(4)
-```
+5. Feature Scalling menggunakan Z-Score Normalization
+>Mengapa penskalaan fitur perlu dilakukan?
+>>Jawab: Untuk memastikan semua fitur memiliki skala yang sama, biasanya antara 0 dan 1 atau sekitar rata-rata 0 dengan standar deviasi 1.
+
 ![standarisation](https://github.com/adinplb/Belajar-Machien-Learning-Terapan-Dicoding/assets/61041719/ed2b1602-7ea1-4089-a6ed-c9d7c9037585)
 
-
 ## Modelling
-To solve this Binary Classification of Medical Diagnosis issue, implementing Logistic Regression, Neural Network and Support Vector Machine Algorithms are the most appropriate model in classifying whether it is Benign (0) or Malignant (1) and having a great accuracy for predictions. The following is an explanation of each stage in each algorithms:
+Untuk mengatasi masalah Klasifikasi Diagnosis Medis Biner ini, menerapkan Regresi Logistik, Jaringan Neural dan Mesin Vektor Pendukung Algoritma adalah model yang paling tepat dalam mengklasifikasikan apakah itu Benign (0) atau Malignant (1) dan memiliki akurasi yang bagus untuk prediksi. Berikut ini adalah penjelasan dari setiap tahap dalam setiap algoritma:
+
 - [Logistic Regression Model:](https://medium.com/@akshayjain_757396/advantages-and-disadvantages-of-logistic-regression-in-machine-learning-a6a247e42b20) <br>
   Step 1. Import library <br>
-  ```ruby
-  from sklearn.linear_model import LogisticRegression
-  from sklearn.metrics import classification_report, confusion_matrix
-  from imblearn.over_sampling import SMOTE
-  from sklearn.preprocessing import StandardScaler
-  ```
   Step 2. Scale features (optional but often recommended)
-  ```ruby
-  scaler = StandardScaler()
-  X_train_resampled_scaled = scaler.fit_transform(X_train_resampled)
-  X_test_scaled = scaler.transform(X_test)
-  ```
+ 
   Step 3. Initialize and train logistic regression model before SMOTE <br>
-  ```ruby
-  log_reg_before_smote = LogisticRegression()
-  log_reg_before_smote.fit(X_train, y_train)
-  ```
+  
   Step 4. Make predictions on the test set before SMOTE <br>
-  ```ruby
-  y_pred_before_smote = log_reg_before_smote.predict(X_test)
-  ```
+  
   Step 5. Evaluate performance before SMOTE
-  ```ruby
-  print("Performance before SMOTE:")
-  print(confusion_matrix(y_test, y_pred_before_smote))
-  print(classification_report(y_test, y_pred_before_smote))
-  ```
 
   ![LogReg_Before Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/73a0b293-33a1-4855-ac9b-577a2adc33ac)
 
   Step 6. Initialize and train logistic regression model after SMOTE <br>
-  ```ruby
-  log_reg_after_smote = LogisticRegression()
-  log_reg_after_smote.fit(X_train_resampled_scaled, y_train_resampled)
-  ```
+  
   Step 7. Make predictions on the test set after SMOTE
-  ```ruby
-  y_pred_after_smote = log_reg_after_smote.predict(X_test_scaled)
-  ```
+  
   Step 8. Evaluate performance after SMOTE
-  ```ruby
-  print("Performance after SMOTE:")
-  print(confusion_matrix(y_test, y_pred_after_smote))
-  print(classification_report(y_test, y_pred_after_smote))
-  ```
+  
   ![LogReg_After Smote](https://github.com/adinplb/Belajar-Machine-Learning-Terapan-Dicoding/assets/61041719/77ddc2a4-4a7c-43eb-8046-0a56a6caa393)
 
   Step 9. Plot Confusion Metrics Before and After SMOTE
